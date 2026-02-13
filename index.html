@@ -655,7 +655,7 @@
             <canvas id="surveyorChart"></canvas>
         </div>
         <div class="chart-container">
-            <h3>Daily Progress (10th Feb)</h3>
+            <h3 id="dailyProgressHeader">Daily Progress</h3>
             <canvas id="dailyChart"></canvas>
         </div>
     </div>
@@ -892,6 +892,12 @@
             },
             options: chartOptions
         });
+
+        // Update Daily Progress header with current date
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = today.toLocaleDateString('en-US', options);
+        document.getElementById('dailyProgressHeader').textContent = `Daily Progress (${formattedDate})`;
 
         // Daily Progress Chart
         new Chart(document.getElementById('dailyChart'), {
