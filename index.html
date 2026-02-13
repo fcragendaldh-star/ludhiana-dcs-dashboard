@@ -775,6 +775,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <script>
         const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         
@@ -798,6 +799,13 @@
             responsive: true,
             maintainAspectRatio: true,
             plugins: {
+                datalabels: {
+                    anchor: 'center',
+                    align: 'center',
+                    color: '#ffffff',
+                    font: { weight: 'bold', size: 12 },
+                    formatter: (value) => value.toFixed(1) + '%'
+                },
                 legend: {
                     labels: {
                         color: chartColors.text,
@@ -890,7 +898,19 @@
                     borderWidth: 0
                 }]
             },
-            options: chartOptions
+            options: {
+                ...chartOptions,
+                plugins: {
+                    ...chartOptions.plugins,
+                    datalabels: {
+                        anchor: 'center',
+                        align: 'center',
+                        color: '#ffffff',
+                        font: { weight: 'bold', size: 12 },
+                        formatter: (value) => value
+                    }
+                }
+            }
         });
 
         // Daily Progress Chart
@@ -914,6 +934,9 @@
                 ...chartOptions,
                 plugins: {
                     ...chartOptions.plugins,
+                    datalabels: {
+                        display: false
+                    },
                     tooltip: {
                         callbacks: {
                             label: (context) => `${context.parsed.y.toLocaleString()} plots`
