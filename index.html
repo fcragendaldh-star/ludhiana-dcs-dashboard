@@ -813,20 +813,9 @@
         const inField = [18, 19, 35, 15, 45, 44, 24];
         const dailyProgress = [1920, 1647, 2591, 1026, 3860, 3395, 1454];
 
+        // Remove all text labels from progress bars
         document.querySelectorAll('.progress-fill').forEach((fill) => {
-            const label = fill.textContent.trim();
-            const widthPercent = parseFloat(fill.style.width);
-
-            if (!label || Number.isNaN(widthPercent) || widthPercent >= 10) {
-                return;
-            }
-
             fill.textContent = '';
-
-            const fallback = document.createElement('span');
-            fallback.className = 'progress-value-fallback';
-            fallback.textContent = label;
-            fill.parentElement.appendChild(fallback);
         });
 
         const chartOptions = {
