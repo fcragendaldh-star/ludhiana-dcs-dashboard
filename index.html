@@ -43,6 +43,43 @@
             color: var(--color-text-primary);
             padding: 20px;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 200px;
+            background: var(--color-bg-secondary);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar p {
+            margin: 8px 0;
+            color: var(--color-text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .sidebar strong {
+            color: var(--color-text-primary);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .content {
+            flex: 1;
         }
 
         .header {
@@ -317,6 +354,15 @@
             .charts-grid {
                 grid-template-columns: 1fr;
             }
+
+            .main-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+            }
         }
     </style>
 </head>
@@ -326,7 +372,16 @@
         <p>Ludhiana District | Data as of 12th February 2026</p>
     </div>
 
-    <div class="stats-grid">
+    <div class="main-container">
+        <div class="sidebar">
+            <strong>Developed by</strong>
+            <p>Shivam Gulati</p>
+            <p>Governance Associate-Revenue</p>
+            <p>62844-12362</p>
+        </div>
+
+        <div class="content">
+            <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-label">Total Target Plots</div>
             <div class="stat-value">11,00,381</div>
@@ -924,13 +979,8 @@
         });
     </script>
 
-    <!-- Footer with Developer Information -->
-    <footer style="text-align: center; padding: 30px 20px; background: var(--color-bg-secondary); margin-top: 40px; border-top: 1px solid var(--color-border); color: var(--color-text-secondary); font-size: 0.85rem; border-radius: 12px;">
-        <p style="margin: 5px 0;"><strong>Developed by</strong></p>
-        <p style="margin: 5px 0;">Shivam Gulati</p>
-        <p style="margin: 5px 0;">Governance Associate-Revenue</p>
-        <p style="margin: 5px 0;">62844-12362</p>
-    </footer>
+            </div><!-- End of content -->
+        </div><!-- End of main-container -->
 
 </body>
 </html>
