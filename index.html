@@ -167,6 +167,24 @@
             font-size: 0.85rem;
         }
 
+        .progress-value-fallback {
+            position: absolute;
+            top: 50%;
+            left: 8px;
+            transform: translateY(-50%);
+            padding: 1px 6px;
+            border-radius: 4px;
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            line-height: 1.2;
+            white-space: nowrap;
+            z-index: 2;
+            pointer-events: none;
+        }
+
         .progress-fill.low {
             background: linear-gradient(90deg, #ef4444, #dc2626);
         }
@@ -794,6 +812,22 @@
         const totalSurveyors = [19, 23, 35, 16, 46, 46, 25];
         const inField = [18, 19, 35, 15, 45, 44, 24];
         const dailyProgress = [1920, 1647, 2591, 1026, 3860, 3395, 1454];
+
+        document.querySelectorAll('.progress-fill').forEach((fill) => {
+            const label = fill.textContent.trim();
+            const widthPercent = parseFloat(fill.style.width);
+
+            if (!label || Number.isNaN(widthPercent) || widthPercent >= 10) {
+                return;
+            }
+
+            fill.textContent = '';
+
+            const fallback = document.createElement('span');
+            fallback.className = 'progress-value-fallback';
+            fallback.textContent = label;
+            fill.parentElement.appendChild(fallback);
+        });
 
         const chartOptions = {
             responsive: true,
