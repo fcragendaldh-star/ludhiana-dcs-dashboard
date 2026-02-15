@@ -92,6 +92,12 @@ def format_indian_number(value: int | float) -> str:
     return sign + ",".join(reversed(parts)) + "," + tail
 
 
+def format_signed_indian_number(value: int | float) -> str:
+    n = int(round(value))
+    prefix = "+" if n > 0 else ""
+    return f"{prefix}{format_indian_number(n)}"
+
+
 def ordinal(n: int) -> str:
     if 10 <= n % 100 <= 20:
         suffix = "th"
@@ -316,7 +322,14 @@ def read_excel_data(excel_path: Path) -> dict[str, Any]:
 
 
 def build_stats_html(totals: dict[str, Any]) -> str:
+    daily_change = totals.get("surveyed_today", 0)
+    change_card_class = "success" if daily_change > 0 else ("danger" if daily_change < 0 else "warning")
     return f"""    <div class="stats-grid">
+        <div class="stat-card {change_card_class}">
+            <div class="stat-label">Change vs Last Day</div>
+            <div class="stat-value">{format_signed_indian_number(daily_change)}</div>
+            <div class="stat-subtext">Net plots surveyed since previous day</div>
+        </div>
         <div class="stat-card">
             <div class="stat-label">Total Uploaded Plots</div>
             <div class="stat-value">{format_indian_number(totals["uploaded_plots"])}</div>
