@@ -696,8 +696,8 @@
             <canvas id="dailyChart" aria-label="Daily plots surveyed by subdivision" role="img"></canvas>
         </div>
         <div class="chart-container">
-            <h3>Approved Plots Trend (14-16 Feb)</h3>
-            <canvas id="verificationIncreaseChart" aria-label="Approved plots by tehsil across 14, 15 and 16 February 2026" role="img"></canvas>
+            <h3>Approved Plots (16 Feb)</h3>
+            <canvas id="verificationIncreaseChart" aria-label="Approved plots by tehsil on 16 February 2026" role="img"></canvas>
         </div>
     </div>
 
@@ -848,8 +848,6 @@
         const totalSurveyors = [26, 19, 26, 40, 52, 46, 31];
         const inField = [15, 14, 25, 38, 42, 46, 22];
         const dailyProgress = [1543, 1811, 2346, 2567, 4045, 4393, 1458];
-        const approvedPlots14Feb = [1516, 4063, 4822, 2743, 1309, 4776, 1976];
-        const approvedPlots15Feb = [1832, 5783, 5763, 2868, 3183, 5512, 1976];
         const approvedPlots16Feb = [2861, 6822, 6204, 3788, 4377, 7049, 2556];
 
         // Remove all text labels from progress bars
@@ -1007,32 +1005,12 @@
             }
         });
 
-        // Approved Plots Trend Chart (Daily Progress style hill chart)
+        // Approved Plots Chart (Daily Progress style hill chart)
         new Chart(document.getElementById('verificationIncreaseChart'), {
             type: 'line',
             data: {
                 labels: subdivisions,
                 datasets: [{
-                    label: 'Approved Plots (14 Feb)',
-                    data: approvedPlots14Feb,
-                    borderColor: chartColors.warning,
-                    backgroundColor: chartColors.warning + '30',
-                    tension: 0.3,
-                    fill: true,
-                    pointBackgroundColor: chartColors.warning,
-                    pointRadius: 4,
-                    pointHoverRadius: 6
-                }, {
-                    label: 'Approved Plots (15 Feb)',
-                    data: approvedPlots15Feb,
-                    borderColor: chartColors.primary,
-                    backgroundColor: chartColors.primary + '30',
-                    tension: 0.3,
-                    fill: true,
-                    pointBackgroundColor: chartColors.primary,
-                    pointRadius: 4,
-                    pointHoverRadius: 6
-                }, {
                     label: 'Approved Plots (16 Feb)',
                     data: approvedPlots16Feb,
                     borderColor: chartColors.success,
