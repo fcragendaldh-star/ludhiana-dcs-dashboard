@@ -677,7 +677,7 @@
         </div>
     </div>
 
-    <!-- Charts: survey, approval, surveyors, daily progress -->
+    <!-- Charts: survey, approval, surveyors, daily progress, verification increase -->
     <div class="charts-grid">
         <div class="chart-container">
             <h3>Survey Completion</h3>
@@ -694,6 +694,10 @@
         <div class="chart-container">
             <h3>Daily Progress</h3>
             <canvas id="dailyChart" aria-label="Daily plots surveyed by subdivision" role="img"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Verification Increase (Approved Plots)</h3>
+            <canvas id="verificationIncreaseChart" aria-label="Verification increase by tehsil across 3 days" role="img"></canvas>
         </div>
     </div>
 
@@ -844,6 +848,11 @@
         const totalSurveyors = [26, 19, 26, 40, 52, 46, 31];
         const inField = [15, 14, 25, 38, 42, 46, 22];
         const dailyProgress = [1543, 1811, 2346, 2567, 4045, 4393, 1458];
+        const approvedPlots14Feb = [1516, 4063, 4822, 2743, 1309, 4776, 1976];
+        const approvedPlots15Feb = [1832, 5783, 5763, 2868, 3183, 5512, 1976];
+        const approvedPlots16Feb = [2861, 6822, 6204, 3788, 4377, 7049, 2556];
+        const verificationIncrease14To15 = approvedPlots15Feb.map((val, idx) => val - approvedPlots14Feb[idx]);
+        const verificationIncrease15To16 = approvedPlots16Feb.map((val, idx) => val - approvedPlots15Feb[idx]);
 
         // Remove all text labels from progress bars
         document.querySelectorAll('.progress-fill').forEach((fill) => {
@@ -994,6 +1003,43 @@
                     tooltip: {
                         callbacks: {
                             label: (context) => `${context.parsed.y.toLocaleString()} plots`
+                        }
+                    }
+                }
+            }
+        });
+
+        // Verification Increase Chart (Approved plots increase between days)
+        new Chart(document.getElementById('verificationIncreaseChart'), {
+            type: 'bar',
+            data: {
+                labels: subdivisions,
+                datasets: [{
+                    label: 'Increase (14 to 15 Feb)',
+                    data: verificationIncrease14To15,
+                    backgroundColor: chartColors.warning,
+                    borderWidth: 0
+                }, {
+                    label: 'Increase (15 to 16 Feb)',
+                    data: verificationIncrease15To16,
+                    backgroundColor: chartColors.success,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                ...chartOptions,
+                plugins: {
+                    ...chartOptions.plugins,
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'top',
+                        color: chartColors.text,
+                        font: { weight: 'bold', size: 10 },
+                        formatter: (value) => value
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => `${context.dataset.label}: ${context.parsed.y.toLocaleString()} plots`
                         }
                     }
                 }
