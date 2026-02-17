@@ -696,8 +696,8 @@
             <canvas id="dailyChart" aria-label="Daily plots surveyed by subdivision" role="img"></canvas>
         </div>
         <div class="chart-container">
-            <h3>Verification Increase (Approved Plots)</h3>
-            <canvas id="verificationIncreaseChart" aria-label="Verification increase by tehsil across 3 days" role="img"></canvas>
+            <h3>Approved Plots Trend (14-16 Feb)</h3>
+            <canvas id="verificationIncreaseChart" aria-label="Approved plots by tehsil across 14, 15 and 16 February 2026" role="img"></canvas>
         </div>
     </div>
 
@@ -851,14 +851,6 @@
         const approvedPlots14Feb = [1516, 4063, 4822, 2743, 1309, 4776, 1976];
         const approvedPlots15Feb = [1832, 5783, 5763, 2868, 3183, 5512, 1976];
         const approvedPlots16Feb = [2861, 6822, 6204, 3788, 4377, 7049, 2556];
-        const verificationIncrease14To15 = approvedPlots15Feb.map((val, idx) => val - approvedPlots14Feb[idx]);
-        const verificationIncrease15To16 = approvedPlots16Feb.map((val, idx) => val - approvedPlots15Feb[idx]);
-        const verificationPct14To15 = verificationIncrease14To15.map((val, idx) =>
-            approvedPlots14Feb[idx] > 0 ? (val / approvedPlots14Feb[idx]) * 100 : 0
-        );
-        const verificationPct15To16 = verificationIncrease15To16.map((val, idx) =>
-            approvedPlots15Feb[idx] > 0 ? (val / approvedPlots15Feb[idx]) * 100 : 0
-        );
 
         // Remove all text labels from progress bars
         document.querySelectorAll('.progress-fill').forEach((fill) => {
@@ -1015,26 +1007,36 @@
             }
         });
 
-        // Verification Increase Chart (Daily Progress style hill chart)
+        // Approved Plots Trend Chart (Daily Progress style hill chart)
         new Chart(document.getElementById('verificationIncreaseChart'), {
             type: 'line',
             data: {
                 labels: subdivisions,
                 datasets: [{
-                    label: 'Increase (14 to 15 Feb)',
-                    data: verificationIncrease14To15,
+                    label: 'Approved Plots (14 Feb)',
+                    data: approvedPlots14Feb,
                     borderColor: chartColors.warning,
-                    backgroundColor: chartColors.warning + '40',
+                    backgroundColor: chartColors.warning + '30',
                     tension: 0.3,
                     fill: true,
                     pointBackgroundColor: chartColors.warning,
                     pointRadius: 4,
                     pointHoverRadius: 6
                 }, {
-                    label: 'Increase (15 to 16 Feb)',
-                    data: verificationIncrease15To16,
+                    label: 'Approved Plots (15 Feb)',
+                    data: approvedPlots15Feb,
+                    borderColor: chartColors.primary,
+                    backgroundColor: chartColors.primary + '30',
+                    tension: 0.3,
+                    fill: true,
+                    pointBackgroundColor: chartColors.primary,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }, {
+                    label: 'Approved Plots (16 Feb)',
+                    data: approvedPlots16Feb,
                     borderColor: chartColors.success,
-                    backgroundColor: chartColors.success + '40',
+                    backgroundColor: chartColors.success + '30',
                     tension: 0.3,
                     fill: true,
                     pointBackgroundColor: chartColors.success,
@@ -1051,13 +1053,7 @@
                     },
                     tooltip: {
                         callbacks: {
-                            label: (context) => {
-                                const i = context.dataIndex;
-                                if (context.datasetIndex === 0) {
-                                    return `${context.dataset.label}: ${context.parsed.y.toLocaleString()} plots (${verificationPct14To15[i].toFixed(1)}%)`;
-                                }
-                                return `${context.dataset.label}: ${context.parsed.y.toLocaleString()} plots (${verificationPct15To16[i].toFixed(1)}%)`;
-                            }
+                            label: (context) => `${context.dataset.label}: ${context.parsed.y.toLocaleString()} plots`
                         }
                     }
                 },
