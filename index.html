@@ -851,6 +851,10 @@
         const approvedPlots15Feb = [1832, 5783, 5763, 2868, 3183, 5512, 1976];
         const approvedPlots16Feb = [2861, 6822, 6204, 3788, 4377, 7049, 2556];
         const approvedPlotsOn16Feb = approvedPlots16Feb.map((val, idx) => val - approvedPlots15Feb[idx]);
+        const approvalHighlightThreshold = 750;
+        const approvedOn16PointColors = approvedPlotsOn16Feb.map((value) =>
+            value < approvalHighlightThreshold ? chartColors.danger : chartColors.success
+        );
 
         // Remove all text labels from progress bars
         document.querySelectorAll('.progress-fill').forEach((fill) => {
@@ -1017,9 +1021,16 @@
                     data: approvedPlotsOn16Feb,
                     borderColor: chartColors.success,
                     backgroundColor: chartColors.success + '30',
+                    segment: {
+                        borderColor: (ctx) =>
+                            (ctx.p0.parsed.y < approvalHighlightThreshold || ctx.p1.parsed.y < approvalHighlightThreshold)
+                                ? chartColors.danger
+                                : chartColors.success
+                    },
                     tension: 0.3,
                     fill: true,
-                    pointBackgroundColor: chartColors.success,
+                    pointBackgroundColor: approvedOn16PointColors,
+                    pointBorderColor: approvedOn16PointColors,
                     pointRadius: 4,
                     pointHoverRadius: 6
                 }]
