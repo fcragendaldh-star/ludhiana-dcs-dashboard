@@ -848,6 +848,10 @@
         const totalSurveyors = [26, 19, 26, 40, 52, 46, 31];
         const inField = [15, 14, 25, 38, 42, 46, 22];
         const dailyProgress = [1543, 1811, 2346, 2567, 4045, 4393, 1458];
+        const dailyTargets = [1231, 1882, 1708, 3184, 3759, 3171, 2403];
+        const dailyProgressPointColors = dailyProgress.map((value, idx) =>
+            value < dailyTargets[idx] ? chartColors.danger : chartColors.primary
+        );
         const approvedPlots15Feb = [1832, 5783, 5763, 2868, 3183, 5512, 1976];
         const approvedPlots16Feb = [2861, 6822, 6204, 3788, 4377, 7049, 2556];
         const approvedPlotsOn16Feb = approvedPlots16Feb.map((val, idx) => val - approvedPlots15Feb[idx]);
@@ -988,9 +992,16 @@
                     data: dailyProgress,
                     borderColor: chartColors.primary,
                     backgroundColor: chartColors.primary + '40',
+                    segment: {
+                        borderColor: (ctx) =>
+                            (ctx.p0.parsed.y < dailyTargets[ctx.p0DataIndex] || ctx.p1.parsed.y < dailyTargets[ctx.p1DataIndex])
+                                ? chartColors.danger
+                                : chartColors.primary
+                    },
                     tension: 0.3,
                     fill: true,
-                    pointBackgroundColor: chartColors.primary,
+                    pointBackgroundColor: dailyProgressPointColors,
+                    pointBorderColor: dailyProgressPointColors,
                     pointRadius: 5,
                     pointHoverRadius: 7
                 }]
@@ -1004,7 +1015,11 @@
                     },
                     tooltip: {
                         callbacks: {
-                            label: (context) => `${context.parsed.y.toLocaleString()} plots`
+                            label: (context) => {
+                                const i = context.dataIndex;
+                                const status = context.parsed.y < dailyTargets[i] ? 'Below target' : 'Target met';
+                                return `${context.parsed.y.toLocaleString()} plots | Target: ${dailyTargets[i].toLocaleString()} (${status})`;
+                            }
                         }
                     }
                 }
