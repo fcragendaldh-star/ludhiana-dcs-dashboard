@@ -696,8 +696,8 @@
             <canvas id="dailyChart" aria-label="Daily plots surveyed by subdivision" role="img"></canvas>
         </div>
         <div class="chart-container">
-            <h3>Approved Plots (16 Feb)</h3>
-            <canvas id="verificationIncreaseChart" aria-label="Approved plots by tehsil on 16 February 2026" role="img"></canvas>
+            <h3>Approved Plots on 16 Feb</h3>
+            <canvas id="verificationIncreaseChart" aria-label="Approved plots on 16 February 2026 by tehsil" role="img"></canvas>
         </div>
     </div>
 
@@ -848,7 +848,9 @@
         const totalSurveyors = [26, 19, 26, 40, 52, 46, 31];
         const inField = [15, 14, 25, 38, 42, 46, 22];
         const dailyProgress = [1543, 1811, 2346, 2567, 4045, 4393, 1458];
+        const approvedPlots15Feb = [1832, 5783, 5763, 2868, 3183, 5512, 1976];
         const approvedPlots16Feb = [2861, 6822, 6204, 3788, 4377, 7049, 2556];
+        const approvedPlotsOn16Feb = approvedPlots16Feb.map((val, idx) => val - approvedPlots15Feb[idx]);
 
         // Remove all text labels from progress bars
         document.querySelectorAll('.progress-fill').forEach((fill) => {
@@ -1005,14 +1007,14 @@
             }
         });
 
-        // Approved Plots Chart (Daily Progress style hill chart)
+        // Approved Plots on 16 Feb (Daily Progress style hill chart)
         new Chart(document.getElementById('verificationIncreaseChart'), {
             type: 'line',
             data: {
                 labels: subdivisions,
                 datasets: [{
-                    label: 'Approved Plots (16 Feb)',
-                    data: approvedPlots16Feb,
+                    label: 'Approved Plots on 16 Feb',
+                    data: approvedPlotsOn16Feb,
                     borderColor: chartColors.success,
                     backgroundColor: chartColors.success + '30',
                     tension: 0.3,
