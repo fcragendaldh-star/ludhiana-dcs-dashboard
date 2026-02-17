@@ -853,33 +853,11 @@
         const approvedPlots16Feb = [2861, 6822, 6204, 3788, 4377, 7049, 2556];
         const verificationIncrease14To15 = approvedPlots15Feb.map((val, idx) => val - approvedPlots14Feb[idx]);
         const verificationIncrease15To16 = approvedPlots16Feb.map((val, idx) => val - approvedPlots15Feb[idx]);
-        const verificationRows = subdivisions.map((name, idx) => {
-            const inc14To15 = verificationIncrease14To15[idx];
-            const inc15To16 = verificationIncrease15To16[idx];
-            const total14To16 = approvedPlots16Feb[idx] - approvedPlots14Feb[idx];
-            return {
-                name,
-                inc14To15,
-                inc15To16,
-                total14To16,
-                pct14To15: approvedPlots14Feb[idx] > 0 ? (inc14To15 / approvedPlots14Feb[idx]) * 100 : 0,
-                pct15To16: approvedPlots15Feb[idx] > 0 ? (inc15To16 / approvedPlots15Feb[idx]) * 100 : 0,
-                pct14To16: approvedPlots14Feb[idx] > 0 ? (total14To16 / approvedPlots14Feb[idx]) * 100 : 0
-            };
-        }).sort((a, b) => b.inc15To16 - a.inc15To16);
-        const verificationLabels = verificationRows.map((row) => row.name);
-        const verificationInc14To15 = verificationRows.map((row) => row.inc14To15);
-        const verificationInc15To16 = verificationRows.map((row) => row.inc15To16);
-        const verificationTotal14To16 = verificationRows.map((row) => row.total14To16);
-        const verificationPct14To15 = verificationRows.map((row) => row.pct14To15);
-        const verificationPct15To16 = verificationRows.map((row) => row.pct15To16);
-        const verificationPct14To16 = verificationRows.map((row) => row.pct14To16);
-        const neutralVerificationColor = isDark ? '#64748b' : '#94a3b8';
-        const verification14To15Colors = verificationInc14To15.map((value) =>
-            value <= 0 ? chartColors.danger : neutralVerificationColor
+        const verificationPct14To15 = verificationIncrease14To15.map((val, idx) =>
+            approvedPlots14Feb[idx] > 0 ? (val / approvedPlots14Feb[idx]) * 100 : 0
         );
-        const verification15To16Colors = verificationInc15To16.map((value) =>
-            value <= 0 ? chartColors.danger : chartColors.success
+        const verificationPct15To16 = verificationIncrease15To16.map((val, idx) =>
+            approvedPlots15Feb[idx] > 0 ? (val / approvedPlots15Feb[idx]) * 100 : 0
         );
 
         // Remove all text labels from progress bars
@@ -1037,73 +1015,64 @@
             }
         });
 
-        // Verification Increase Chart (Approved plots increase between days)
+        // Verification Increase Chart (Daily Progress style hill chart)
         new Chart(document.getElementById('verificationIncreaseChart'), {
-            type: 'bar',
+            type: 'line',
             data: {
-                labels: verificationLabels,
+                labels: subdivisions,
                 datasets: [{
                     label: 'Increase (14 to 15 Feb)',
-                    data: verificationInc14To15,
-                    backgroundColor: verification14To15Colors,
-                    borderWidth: 0
+                    data: verificationIncrease14To15,
+                    borderColor: chartColors.warning,
+                    backgroundColor: chartColors.warning + '40',
+                    tension: 0.3,
+                    fill: true,
+                    pointBackgroundColor: chartColors.warning,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
                 }, {
                     label: 'Increase (15 to 16 Feb)',
-                    data: verificationInc15To16,
-                    backgroundColor: verification15To16Colors,
-                    borderWidth: 0
+                    data: verificationIncrease15To16,
+                    borderColor: chartColors.success,
+                    backgroundColor: chartColors.success + '40',
+                    tension: 0.3,
+                    fill: true,
+                    pointBackgroundColor: chartColors.success,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
                 }]
             },
             options: {
                 ...chartOptions,
-                indexAxis: 'y',
                 plugins: {
                     ...chartOptions.plugins,
                     datalabels: {
-                        display: (context) => context.datasetIndex === 1,
-                        anchor: 'end',
-                        align: 'right',
-                        offset: 4,
-                        color: chartColors.text,
-                        font: { weight: 'bold', size: 10 },
-                        formatter: (value, context) => {
-                            const i = context.dataIndex;
-                            return `${value.toLocaleString()} (${verificationPct15To16[i].toFixed(1)}%)\n2d: ${verificationTotal14To16[i].toLocaleString()} (${verificationPct14To16[i].toFixed(1)}%)`;
-                        }
+                        display: false
                     },
                     tooltip: {
                         callbacks: {
                             label: (context) => {
                                 const i = context.dataIndex;
                                 if (context.datasetIndex === 0) {
-                                    return `${context.dataset.label}: ${context.parsed.x.toLocaleString()} plots (${verificationPct14To15[i].toFixed(1)}%)`;
+                                    return `${context.dataset.label}: ${context.parsed.y.toLocaleString()} plots (${verificationPct14To15[i].toFixed(1)}%)`;
                                 }
-                                return `${context.dataset.label}: ${context.parsed.x.toLocaleString()} plots (${verificationPct15To16[i].toFixed(1)}%)`;
-                            },
-                            afterLabel: (context) => {
-                                const i = context.dataIndex;
-                                return `Total (14 to 16 Feb): ${verificationTotal14To16[i].toLocaleString()} plots (${verificationPct14To16[i].toFixed(1)}%)`;
+                                return `${context.dataset.label}: ${context.parsed.y.toLocaleString()} plots (${verificationPct15To16[i].toFixed(1)}%)`;
                             }
                         }
                     }
                 },
                 scales: {
                     y: {
-                        ticks: { color: chartColors.text, font: { size: 10 } },
-                        grid: { color: chartColors.grid }
-                    },
-                    x: {
                         beginAtZero: true,
                         ticks: {
                             color: chartColors.text,
                             callback: (value) => Number(value).toLocaleString()
                         },
-                        grid: { color: chartColors.grid },
-                        title: {
-                            display: true,
-                            text: 'Increase in Approved Plots',
-                            color: chartColors.text
-                        }
+                        grid: { color: chartColors.grid }
+                    },
+                    x: {
+                        ticks: { color: chartColors.text, font: { size: 10 } },
+                        grid: { color: chartColors.grid }
                     }
                 }
             }
