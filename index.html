@@ -468,7 +468,7 @@
                     <span><strong>20.90%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 20.90%;"></div>
+                    <div class="progress-fill medium" style="width: 20.90%;"></div>
                 </div>
             </div>
             <div class="progress-section">
@@ -554,7 +554,7 @@
                     <span><strong>24.41%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 24.41%;"></div>
+                    <div class="progress-fill medium" style="width: 24.41%;"></div>
                 </div>
             </div>
             <div class="progress-section">
@@ -597,7 +597,7 @@
                     <span><strong>24.44%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 24.44%;"></div>
+                    <div class="progress-fill medium" style="width: 24.44%;"></div>
                 </div>
             </div>
             <div class="progress-section">
@@ -753,7 +753,7 @@
                     <td>3,184</td>
                     <td>2,764</td>
                     <td>28,616</td>
-                    <td><span class="badge success">20.90%</span></td>
+                    <td><span class="badge warning">20.90%</span></td>
                     <td>4,925</td>
                     <td><span class="badge warning">17.21%</span></td>
                     <td>42</td>
@@ -779,7 +779,7 @@
                     <td>3,759</td>
                     <td>4,413</td>
                     <td>39,454</td>
-                    <td><span class="badge success">24.41%</span></td>
+                    <td><span class="badge warning">24.41%</span></td>
                     <td>5,691</td>
                     <td><span class="badge warning">14.42%</span></td>
                     <td>52</td>
@@ -792,7 +792,7 @@
                     <td>3,171</td>
                     <td>4,003</td>
                     <td>33,320</td>
-                    <td><span class="badge success">24.44%</span></td>
+                    <td><span class="badge warning">24.44%</span></td>
                     <td>7,941</td>
                     <td><span class="badge success">23.83%</span></td>
                     <td>46</td>
@@ -805,7 +805,7 @@
                     <td>2,403</td>
                     <td>1,512</td>
                     <td>15,291</td>
-                    <td><span class="badge success">14.80%</span></td>
+                    <td><span class="badge danger">14.80%</span></td>
                     <td>2,836</td>
                     <td><span class="badge warning">18.55%</span></td>
                     <td>31</td>
@@ -818,7 +818,7 @@
                     <td><strong>17,338</strong></td>
                     <td><strong>19,569</strong></td>
                     <td><strong>1,82,087</strong></td>
-                    <td><span class="badge success">24.42%</span></td>
+                    <td><span class="badge warning">24.42%</span></td>
                     <td><strong>40,517</strong></td>
                     <td><span class="badge success">22.25%</span></td>
                     <td><strong>245</strong></td>
@@ -903,8 +903,9 @@
                 datasets: [{
                     label: 'Survey Progress (%)',
                     data: surveyPercentages,
-                    backgroundColor: surveyPercentages.map(val => 
-                        val >= 15 ? chartColors.success : chartColors.danger
+                    backgroundColor: surveyPercentages.map(val =>
+                        val > 25 ? chartColors.success :
+                        val >= 20 ? chartColors.warning : chartColors.danger
                     ),
                     borderWidth: 0
                 }]

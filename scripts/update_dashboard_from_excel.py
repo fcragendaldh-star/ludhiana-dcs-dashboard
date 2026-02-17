@@ -134,9 +134,9 @@ def format_daily_chart_label(date_obj: dt.date) -> str:
 
 
 def survey_bar_class(percent: float) -> str:
-    if percent >= 10:
+    if percent > 25:
         return "high"
-    if percent >= 7:
+    if percent >= 20:
         return "medium"
     return "low"
 
@@ -150,9 +150,9 @@ def approval_bar_class(percent: float) -> str:
 
 
 def survey_badge_class(percent: float) -> str:
-    if percent >= 10:
+    if percent > 25:
         return "success"
-    if percent >= 7:
+    if percent >= 20:
         return "warning"
     return "danger"
 
