@@ -283,6 +283,24 @@
             color: #991b1b;
         }
 
+        .subdivision-card.threshold-alert {
+            border: 2px solid var(--color-danger);
+        }
+
+        .threshold-tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        tr.threshold-alert td {
+            background: rgba(239, 68, 68, 0.08);
+        }
+
         @media (prefers-color-scheme: dark) {
             .badge.success {
                 background: #064e3b;
@@ -295,6 +313,15 @@
             .badge.danger {
                 background: #7f1d1d;
                 color: #fca5a5;
+            }
+
+            .threshold-tag {
+                background: #7f1d1d;
+                color: #fca5a5;
+            }
+
+            tr.threshold-alert td {
+                background: rgba(248, 113, 113, 0.12);
             }
         }
 
@@ -341,37 +368,40 @@
 <body>
     <div class="header">
         <h1>🌾 Digital Crop Survey Dashboard</h1>
-        <p>Ludhiana District | Data as of 24th February 2026</p>
+        <p>Ludhiana District | Data as of 25th February 2026</p>
     </div>
 
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-label">Total Uploaded Plots</div>
-            <div class="stat-value">7,45,520</div>
+            <div class="stat-value">7,86,559</div>
             <div class="stat-subtext">Across all sub-divisions</div>
         </div>
         <div class="stat-card success">
             <div class="stat-label">Total Surveyed</div>
-            <div class="stat-value">3,21,542</div>
-            <div class="stat-subtext">43.13% completion</div>
+            <div class="stat-value">3,36,991</div>
+            <div class="stat-subtext">42.84% completion</div>
         </div>
         <div class="stat-card warning">
             <div class="stat-label">Approved by Supervisor</div>
-            <div class="stat-value">83,617</div>
-            <div class="stat-subtext">26.01% of surveyed</div>
+            <div class="stat-value">90,928</div>
+            <div class="stat-subtext">26.98% of surveyed</div>
         </div>
         <div class="stat-card danger">
             <div class="stat-label">Daily Target Required</div>
-            <div class="stat-value">13,249</div>
+            <div class="stat-value">14,049</div>
             <div class="stat-subtext">To complete by 31st March</div>
         </div>
         <div class="stat-card">
             <div class="stat-label">Surveyed Today</div>
-            <div class="stat-value">17,456</div>
+            <div class="stat-value">15,367</div>
         </div>
     </div>
 
     <h2 style="margin: 30px 0 20px 0; padding-left: 10px;">📊 Sub-Division Performance</h2>
+    <p style="margin: -10px 0 20px 10px; color: var(--color-text-secondary); font-size: 0.9rem;">
+        Threshold flag (Survey &lt; 40% and Approval &lt; 25%): <strong>Ludhiana (East)</strong>
+    </p>
 
     <div class="subdivision-grid">
         <div class="subdivision-card">
@@ -379,33 +409,33 @@
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
-                    <span><strong>53.17%</strong></span>
+                    <span><strong>46.75%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 53.17%;"></div>
+                    <div class="progress-fill high" style="width: 46.75%;"></div>
                 </div>
             </div>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Approval Rate</span>
-                    <span><strong>30.41%</strong></span>
+                    <span><strong>30.03%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 30.41%;"></div>
+                    <div class="progress-fill high" style="width: 30.03%;"></div>
                 </div>
             </div>
             <div class="detail-grid">
                 <div class="detail-item">
                     <span class="detail-label">Total Plots</span>
-                    <span class="detail-value">80,935</span>
+                    <span class="detail-value">95,281</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">43,034</span>
+                    <span class="detail-value">44,546</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Approved</span>
-                    <span class="detail-value">13,088</span>
+                    <span class="detail-value">13,379</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyors</span>
@@ -413,7 +443,7 @@
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">In Field</span>
-                    <span class="detail-value">9</span>
+                    <span class="detail-value">14</span>
                 </div>
             </div>
         </div>
@@ -422,19 +452,19 @@
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
-                    <span><strong>56.92%</strong></span>
+                    <span><strong>58.74%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 56.92%;"></div>
+                    <div class="progress-fill high" style="width: 58.74%;"></div>
                 </div>
             </div>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Approval Rate</span>
-                    <span><strong>37.10%</strong></span>
+                    <span><strong>36.99%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 37.10%;"></div>
+                    <div class="progress-fill high" style="width: 36.99%;"></div>
                 </div>
             </div>
             <div class="detail-grid">
@@ -444,11 +474,11 @@
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">30,134</span>
+                    <span class="detail-value">31,096</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Approved</span>
-                    <span class="detail-value">11,180</span>
+                    <span class="detail-value">11,501</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyors</span>
@@ -456,42 +486,42 @@
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">In Field</span>
-                    <span class="detail-value">11</span>
+                    <span class="detail-value">10</span>
                 </div>
             </div>
         </div>
-        <div class="subdivision-card">
-            <h3>Ludhiana (East)</h3>
+        <div class="subdivision-card threshold-alert">
+            <h3>Ludhiana (East) <span class="threshold-tag">Survey &lt; 40% and Approval &lt; 25%</span></h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
-                    <span><strong>40.09%</strong></span>
+                    <span><strong>37.78%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 40.09%;"></div>
+                    <div class="progress-fill high" style="width: 37.78%;"></div>
                 </div>
             </div>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Approval Rate</span>
-                    <span><strong>22.24%</strong></span>
+                    <span><strong>23.12%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 22.24%;"></div>
+                    <div class="progress-fill high" style="width: 23.12%;"></div>
                 </div>
             </div>
             <div class="detail-grid">
                 <div class="detail-item">
                     <span class="detail-label">Total Plots</span>
-                    <span class="detail-value">1,36,910</span>
+                    <span class="detail-value">1,51,740</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">54,888</span>
+                    <span class="detail-value">57,333</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Approved</span>
-                    <span class="detail-value">12,208</span>
+                    <span class="detail-value">13,253</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyors</span>
@@ -499,7 +529,7 @@
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">In Field</span>
-                    <span class="detail-value">41</span>
+                    <span class="detail-value">37</span>
                 </div>
             </div>
         </div>
@@ -508,19 +538,19 @@
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
-                    <span><strong>50.73%</strong></span>
+                    <span><strong>53.97%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 50.73%;"></div>
+                    <div class="progress-fill high" style="width: 53.97%;"></div>
                 </div>
             </div>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Approval Rate</span>
-                    <span><strong>30.74%</strong></span>
+                    <span><strong>31.04%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 30.74%;"></div>
+                    <div class="progress-fill high" style="width: 31.04%;"></div>
                 </div>
             </div>
             <div class="detail-grid">
@@ -530,11 +560,11 @@
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">37,253</span>
+                    <span class="detail-value">39,635</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Approved</span>
-                    <span class="detail-value">11,451</span>
+                    <span class="detail-value">12,301</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyors</span>
@@ -542,7 +572,7 @@
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">In Field</span>
-                    <span class="detail-value">17</span>
+                    <span class="detail-value">19</span>
                 </div>
             </div>
         </div>
@@ -551,33 +581,33 @@
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
-                    <span><strong>42.19%</strong></span>
+                    <span><strong>42.83%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 42.19%;"></div>
+                    <div class="progress-fill high" style="width: 42.83%;"></div>
                 </div>
             </div>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Approval Rate</span>
-                    <span><strong>17.29%</strong></span>
+                    <span><strong>18.49%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 17.29%;"></div>
+                    <div class="progress-fill high" style="width: 18.49%;"></div>
                 </div>
             </div>
             <div class="detail-grid">
                 <div class="detail-item">
                     <span class="detail-label">Total Plots</span>
-                    <span class="detail-value">1,61,627</span>
+                    <span class="detail-value">1,66,498</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">68,194</span>
+                    <span class="detail-value">71,307</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Approved</span>
-                    <span class="detail-value">11,793</span>
+                    <span class="detail-value">13,188</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyors</span>
@@ -585,7 +615,7 @@
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">In Field</span>
-                    <span class="detail-value">38</span>
+                    <span class="detail-value">30</span>
                 </div>
             </div>
         </div>
@@ -594,33 +624,33 @@
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
-                    <span><strong>45.00%</strong></span>
+                    <span><strong>45.59%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 45.00%;"></div>
+                    <div class="progress-fill high" style="width: 45.59%;"></div>
                 </div>
             </div>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Approval Rate</span>
-                    <span><strong>27.15%</strong></span>
+                    <span><strong>27.86%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 27.15%;"></div>
+                    <div class="progress-fill high" style="width: 27.86%;"></div>
                 </div>
             </div>
             <div class="detail-grid">
                 <div class="detail-item">
                     <span class="detail-label">Total Plots</span>
-                    <span class="detail-value">1,36,338</span>
+                    <span class="detail-value">1,41,835</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">61,356</span>
+                    <span class="detail-value">64,668</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Approved</span>
-                    <span class="detail-value">16,660</span>
+                    <span class="detail-value">18,017</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyors</span>
@@ -628,7 +658,7 @@
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">In Field</span>
-                    <span class="detail-value">37</span>
+                    <span class="detail-value">34</span>
                 </div>
             </div>
         </div>
@@ -637,33 +667,33 @@
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
-                    <span><strong>25.82%</strong></span>
+                    <span><strong>27.10%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 25.82%;"></div>
+                    <div class="progress-fill high" style="width: 27.10%;"></div>
                 </div>
             </div>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Approval Rate</span>
-                    <span><strong>27.12%</strong></span>
+                    <span><strong>32.70%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 27.12%;"></div>
+                    <div class="progress-fill high" style="width: 32.70%;"></div>
                 </div>
             </div>
             <div class="detail-grid">
                 <div class="detail-item">
                     <span class="detail-label">Total Plots</span>
-                    <span class="detail-value">1,03,333</span>
+                    <span class="detail-value">1,04,828</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">26,683</span>
+                    <span class="detail-value">28,406</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Approved</span>
-                    <span class="detail-value">7,237</span>
+                    <span class="detail-value">9,289</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Surveyors</span>
@@ -696,8 +726,8 @@
             <canvas id="dailyChart" aria-label="Daily plots surveyed by subdivision" role="img"></canvas>
         </div>
         <div class="chart-container">
-            <h3>Approved Plots Increase Since 19 Feb</h3>
-            <canvas id="verificationIncreaseChart" aria-label="Increase in approved plots from 19 to 24 February 2026 by tehsil" role="img"></canvas>
+            <h3>Approved Plots Increase Since 24 Feb</h3>
+            <canvas id="verificationIncreaseChart" aria-label="Increase in approved plots from 24 to 25 February 2026 by tehsil" role="img"></canvas>
         </div>
     </div>
 
@@ -710,7 +740,7 @@
                     <th>Uploaded Villages</th>
                     <th>Uploaded Plots</th>
                     <th>Daily Target</th>
-                    <th>Surveyed (24-2-26)</th>
+                    <th>Surveyed (25-2-26)</th>
                     <th>Total Surveyed</th>
                     <th>Survey %</th>
                     <th>Approved</th>
@@ -722,107 +752,107 @@
             <tbody>
                 <tr>
                     <td><strong>Raikot</strong></td>
-                    <td>42</td>
-                    <td>80,935</td>
-                    <td>1,184</td>
-                    <td>1,862</td>
-                    <td>43,034</td>
-                    <td><span class="badge success">53.17%</span></td>
-                    <td>13,088</td>
-                    <td><span class="badge success">30.41%</span></td>
+                    <td>44</td>
+                    <td>95,281</td>
+                    <td>1,585</td>
+                    <td>1,512</td>
+                    <td>44,546</td>
+                    <td><span class="badge success">46.75%</span></td>
+                    <td>13,379</td>
+                    <td><span class="badge success">30.03%</span></td>
                     <td>23</td>
-                    <td>9</td>
+                    <td>14</td>
                 </tr>
                 <tr>
                     <td><strong>Khanna</strong></td>
                     <td>54</td>
                     <td>52,938</td>
-                    <td>713</td>
-                    <td>1,425</td>
-                    <td>30,134</td>
-                    <td><span class="badge success">56.92%</span></td>
-                    <td>11,180</td>
-                    <td><span class="badge success">37.10%</span></td>
+                    <td>683</td>
+                    <td>962</td>
+                    <td>31,096</td>
+                    <td><span class="badge success">58.74%</span></td>
+                    <td>11,501</td>
+                    <td><span class="badge success">36.99%</span></td>
                     <td>21</td>
-                    <td>11</td>
+                    <td>10</td>
                 </tr>
-                <tr>
+                <tr class="threshold-alert">
                     <td><strong>Ludhiana (East)</strong></td>
-                    <td>132</td>
-                    <td>1,36,910</td>
-                    <td>2,563</td>
-                    <td>3,193</td>
-                    <td>54,888</td>
-                    <td><span class="badge success">40.09%</span></td>
-                    <td>12,208</td>
-                    <td><span class="badge success">22.24%</span></td>
+                    <td>148</td>
+                    <td>1,51,740</td>
+                    <td>2,950</td>
+                    <td>2,363</td>
+                    <td>57,333</td>
+                    <td><span class="badge warning">37.78%</span></td>
+                    <td>13,253</td>
+                    <td><span class="badge warning">23.12%</span></td>
                     <td>47</td>
-                    <td>41</td>
+                    <td>37</td>
                 </tr>
                 <tr>
                     <td><strong>Payal</strong></td>
                     <td>65</td>
                     <td>73,439</td>
-                    <td>1,131</td>
-                    <td>1,918</td>
-                    <td>37,253</td>
-                    <td><span class="badge success">50.73%</span></td>
-                    <td>11,451</td>
-                    <td><span class="badge success">30.74%</span></td>
+                    <td>1,056</td>
+                    <td>2,382</td>
+                    <td>39,635</td>
+                    <td><span class="badge success">53.97%</span></td>
+                    <td>12,301</td>
+                    <td><span class="badge success">31.04%</span></td>
                     <td>27</td>
-                    <td>17</td>
+                    <td>19</td>
                 </tr>
                 <tr>
                     <td><strong>Jagraon</strong></td>
-                    <td>111</td>
-                    <td>1,61,627</td>
-                    <td>2,920</td>
-                    <td>4,144</td>
-                    <td>68,194</td>
-                    <td><span class="badge success">42.19%</span></td>
-                    <td>11,793</td>
-                    <td><span class="badge warning">17.29%</span></td>
+                    <td>112</td>
+                    <td>1,66,498</td>
+                    <td>2,975</td>
+                    <td>3,113</td>
+                    <td>71,307</td>
+                    <td><span class="badge success">42.83%</span></td>
+                    <td>13,188</td>
+                    <td><span class="badge warning">18.49%</span></td>
                     <td>52</td>
-                    <td>38</td>
+                    <td>30</td>
                 </tr>
                 <tr>
                     <td><strong>Samrala</strong></td>
-                    <td>177</td>
-                    <td>1,36,338</td>
-                    <td>2,343</td>
-                    <td>3,284</td>
-                    <td>61,356</td>
-                    <td><span class="badge success">45.00%</span></td>
-                    <td>16,660</td>
-                    <td><span class="badge success">27.15%</span></td>
+                    <td>181</td>
+                    <td>1,41,835</td>
+                    <td>2,411</td>
+                    <td>3,312</td>
+                    <td>64,668</td>
+                    <td><span class="badge success">45.59%</span></td>
+                    <td>18,017</td>
+                    <td><span class="badge success">27.86%</span></td>
                     <td>49</td>
-                    <td>37</td>
+                    <td>34</td>
                 </tr>
                 <tr>
                     <td><strong>Ludhiana (West)</strong></td>
-                    <td>83</td>
-                    <td>1,03,333</td>
-                    <td>2,395</td>
-                    <td>1,630</td>
-                    <td>26,683</td>
-                    <td><span class="badge success">25.82%</span></td>
-                    <td>7,237</td>
-                    <td><span class="badge success">27.12%</span></td>
+                    <td>85</td>
+                    <td>1,04,828</td>
+                    <td>2,388</td>
+                    <td>1,723</td>
+                    <td>28,406</td>
+                    <td><span class="badge warning">27.10%</span></td>
+                    <td>9,289</td>
+                    <td><span class="badge success">32.70%</span></td>
                     <td>31</td>
                     <td>20</td>
                 </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong>664</strong></td>
-                    <td><strong>7,45,520</strong></td>
-                    <td><strong>13,249</strong></td>
-                    <td><strong>17,456</strong></td>
-                    <td><strong>3,21,542</strong></td>
-                    <td><span class="badge success">43.13%</span></td>
-                    <td><strong>83,617</strong></td>
-                    <td><span class="badge success">26.01%</span></td>
+                    <td><strong>689</strong></td>
+                    <td><strong>7,86,559</strong></td>
+                    <td><strong>14,049</strong></td>
+                    <td><strong>15,367</strong></td>
+                    <td><strong>3,36,991</strong></td>
+                    <td><span class="badge success">42.84%</span></td>
+                    <td><strong>90,928</strong></td>
+                    <td><span class="badge success">26.98%</span></td>
                     <td><strong>250</strong></td>
-                    <td><strong>173</strong></td>
+                    <td><strong>164</strong></td>
                 </tr>
             </tbody>
         </table>
@@ -843,20 +873,20 @@
         };
 
         const subdivisions = ['Khanna', 'Raikot', 'Payal', 'Ludhiana (East)', 'Jagraon', 'Samrala', 'Ludhiana (West)'];
-        const surveyPercentages = [56.92, 53.17, 50.73, 40.09, 42.19, 45.00, 25.82];
-        const approvalPercentages = [37.10, 30.41, 30.74, 22.24, 17.29, 27.15, 27.12];
+        const surveyPercentages = [58.74, 46.75, 53.97, 37.78, 42.83, 45.59, 27.10];
+        const approvalPercentages = [36.99, 30.03, 31.04, 23.12, 18.49, 27.86, 32.70];
         const totalSurveyors = [21, 23, 27, 47, 52, 49, 31];
-        const inField = [11, 9, 17, 41, 38, 37, 20];
-        const dailyProgress = [1425, 1862, 1918, 3193, 4144, 3284, 1630];
-        const dailyTargets = [713, 1184, 1131, 2563, 2920, 2343, 2395];
+        const inField = [10, 14, 19, 37, 30, 34, 20];
+        const dailyProgress = [962, 1512, 2382, 2363, 3113, 3312, 1723];
+        const dailyTargets = [683, 1585, 1056, 2950, 2975, 2411, 2388];
         const dailyProgressPointColors = dailyProgress.map((value, idx) =>
             value < dailyTargets[idx] ? chartColors.danger : chartColors.primary
         );
-        const approvedPlots19Feb = [6335, 8937, 8407, 7379, 7700, 10312, 4215];
         const approvedPlots24Feb = [11180, 13088, 11451, 12208, 11793, 16660, 7237];
-        const approvedPlotsIncreaseSince19Feb = approvedPlots24Feb.map((val, idx) => val - approvedPlots19Feb[idx]);
-        const approvalHighlightThreshold = 3000;
-        const approvedIncreasePointColors = approvedPlotsIncreaseSince19Feb.map((value) =>
+        const approvedPlots25Feb = [11501, 13379, 12301, 13253, 13188, 18017, 9289];
+        const approvedPlotsIncreaseSince24Feb = approvedPlots25Feb.map((val, idx) => val - approvedPlots24Feb[idx]);
+        const approvalHighlightThreshold = 1000;
+        const approvedIncreasePointColors = approvedPlotsIncreaseSince24Feb.map((value) =>
             value < approvalHighlightThreshold ? chartColors.danger : chartColors.success
         );
 
@@ -989,7 +1019,7 @@
             data: {
                 labels: subdivisions,
                 datasets: [{
-                    label: 'Plots Surveyed (24th Feb)',
+                    label: 'Plots Surveyed (25th Feb)',
                     data: dailyProgress,
                     borderColor: chartColors.primary,
                     backgroundColor: chartColors.primary + '40',
@@ -1027,14 +1057,14 @@
             }
         });
 
-        // Approved Plots Increase Since 19 Feb (uses current vs historical totals)
+        // Approved Plots Increase Since 24 Feb (uses current vs historical totals)
         new Chart(document.getElementById('verificationIncreaseChart'), {
             type: 'line',
             data: {
                 labels: subdivisions,
                 datasets: [{
-                    label: 'Approved Plots Increase Since 19 Feb',
-                    data: approvedPlotsIncreaseSince19Feb,
+                    label: 'Approved Plots Increase Since 24 Feb',
+                    data: approvedPlotsIncreaseSince24Feb,
                     borderColor: chartColors.success,
                     backgroundColor: chartColors.success + '30',
                     segment: {
