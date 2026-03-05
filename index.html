@@ -902,6 +902,12 @@
         const trafficColorsForSorted = (total) =>
             Array.from({ length: total }, (_, index) => trafficColorByRank(index, total));
         const withAlpha = (hex, alphaHex) => `${hex}${alphaHex}`;
+        const compactNumberFormatter = new Intl.NumberFormat('en-IN', {
+            notation: 'compact',
+            maximumFractionDigits: 1
+        });
+        const formatCompactNumber = (value) =>
+            Number(value) >= 1000 ? compactNumberFormatter.format(Number(value)) : Number(value).toString();
 
         const sortIndicesDesc = (values) =>
             values.map((value, index) => ({ value, index })).sort((a, b) => b.value - a.value).map((item) => item.index);
@@ -1081,7 +1087,16 @@
                 plugins: {
                     ...chartOptions.plugins,
                     datalabels: {
-                        display: false
+                        display: true,
+                        anchor: 'end',
+                        align: 'top',
+                        offset: 4,
+                        color: chartColors.text,
+                        backgroundColor: isDark ? 'rgba(15, 23, 42, 0.75)' : 'rgba(255, 255, 255, 0.85)',
+                        borderRadius: 4,
+                        padding: 3,
+                        font: { weight: '600', size: 10 },
+                        formatter: (value) => formatCompactNumber(value)
                     },
                     tooltip: {
                         callbacks: {
@@ -1119,7 +1134,16 @@
                 plugins: {
                     ...chartOptions.plugins,
                     datalabels: {
-                        display: false
+                        display: true,
+                        anchor: 'end',
+                        align: 'top',
+                        offset: 4,
+                        color: chartColors.text,
+                        backgroundColor: isDark ? 'rgba(15, 23, 42, 0.75)' : 'rgba(255, 255, 255, 0.85)',
+                        borderRadius: 4,
+                        padding: 3,
+                        font: { weight: '600', size: 10 },
+                        formatter: (value) => formatCompactNumber(value)
                     },
                     tooltip: {
                         callbacks: {
@@ -1164,8 +1188,8 @@
                         anchor: 'end',
                         align: 'start',
                         color: chartColors.text,
-                        font: { weight: 'bold', size: 11 },
-                        formatter: (value) => Number(value).toLocaleString()
+                        font: { weight: '600', size: 10 },
+                        formatter: (value) => formatCompactNumber(value)
                     },
                     tooltip: {
                         callbacks: {
