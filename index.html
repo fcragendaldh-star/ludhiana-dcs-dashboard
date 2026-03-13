@@ -405,7 +405,7 @@
 
     <h2 style="margin: 30px 0 20px 0; padding-left: 10px;">📊 Sub-Division Performance</h2>
     <p style="margin: -10px 0 20px 10px; color: var(--color-text-secondary); font-size: 0.9rem;">
-        Threshold flag (Survey &lt; 40% or Approval &lt; 25%): <strong>None</strong>
+        Threshold flag (Survey &lt; 65% or Approval &lt; 45%): <strong>Payal, Raikot, Ludhiana (East), Ludhiana (West)</strong>
     </p>
 
     <div class="subdivision-grid">
@@ -452,8 +452,8 @@
                 </div>
             </div>
         </div>
-        <div class="subdivision-card">
-            <h3>Payal</h3>
+        <div class="subdivision-card threshold-alert">
+            <h3>Payal <span class="threshold-tag">Approval &lt; 45%</span></h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
@@ -469,7 +469,7 @@
                     <span><strong>29.40%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 29.40%;"></div>
+                    <div class="progress-fill low" style="width: 29.40%;"></div>
                 </div>
             </div>
             <div class="detail-grid">
@@ -495,8 +495,8 @@
                 </div>
             </div>
         </div>
-        <div class="subdivision-card">
-            <h3>Raikot</h3>
+        <div class="subdivision-card threshold-alert">
+            <h3>Raikot <span class="threshold-tag">Approval &lt; 45%</span></h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
@@ -512,7 +512,7 @@
                     <span><strong>35.26%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 35.26%;"></div>
+                    <div class="progress-fill low" style="width: 35.26%;"></div>
                 </div>
             </div>
             <div class="detail-grid">
@@ -624,15 +624,15 @@
                 </div>
             </div>
         </div>
-        <div class="subdivision-card">
-            <h3>Ludhiana (East)</h3>
+        <div class="subdivision-card threshold-alert">
+            <h3>Ludhiana (East) <span class="threshold-tag">Survey &lt; 65% | Approval &lt; 45%</span></h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
                     <span><strong>58.98%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 58.98%;"></div>
+                    <div class="progress-fill low" style="width: 58.98%;"></div>
                 </div>
             </div>
             <div class="progress-section">
@@ -641,7 +641,7 @@
                     <span><strong>40.36%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 40.36%;"></div>
+                    <div class="progress-fill low" style="width: 40.36%;"></div>
                 </div>
             </div>
             <div class="detail-grid">
@@ -667,15 +667,15 @@
                 </div>
             </div>
         </div>
-        <div class="subdivision-card">
-            <h3>Ludhiana (West)</h3>
+        <div class="subdivision-card threshold-alert">
+            <h3>Ludhiana (West) <span class="threshold-tag">Survey &lt; 65%</span></h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
                     <span><strong>43.61%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 43.61%;"></div>
+                    <div class="progress-fill low" style="width: 43.61%;"></div>
                 </div>
             </div>
             <div class="progress-section">
@@ -759,7 +759,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class="threshold-alert">
                     <td><strong>Raikot</strong></td>
                     <td>44</td>
                     <td>95,281</td>
@@ -768,7 +768,7 @@
                     <td>72,113</td>
                     <td><span class="badge success">75.68%</span></td>
                     <td>25,427</td>
-                    <td><span class="badge success">35.26%</span></td>
+                    <td><span class="badge danger">35.26%</span></td>
                     <td>23</td>
                     <td>14</td>
                 </tr>
@@ -785,20 +785,20 @@
                     <td>21</td>
                     <td>6</td>
                 </tr>
-                <tr>
+                <tr class="threshold-alert">
                     <td><strong>Ludhiana (East)</strong></td>
                     <td>163</td>
                     <td>1,68,059</td>
                     <td>3,447</td>
                     <td>3,006</td>
                     <td>99,117</td>
-                    <td><span class="badge success">58.98%</span></td>
+                    <td><span class="badge danger">58.98%</span></td>
                     <td>40,005</td>
-                    <td><span class="badge success">40.36%</span></td>
+                    <td><span class="badge danger">40.36%</span></td>
                     <td>47</td>
                     <td>32</td>
                 </tr>
-                <tr>
+                <tr class="threshold-alert">
                     <td><strong>Payal</strong></td>
                     <td>69</td>
                     <td>76,987</td>
@@ -807,7 +807,7 @@
                     <td>66,772</td>
                     <td><span class="badge success">86.73%</span></td>
                     <td>19,629</td>
-                    <td><span class="badge success">29.40%</span></td>
+                    <td><span class="badge danger">29.40%</span></td>
                     <td>27</td>
                     <td>13</td>
                 </tr>
@@ -837,14 +837,14 @@
                     <td>49</td>
                     <td>19</td>
                 </tr>
-                <tr>
+                <tr class="threshold-alert">
                     <td><strong>Ludhiana (West)</strong></td>
                     <td>88</td>
                     <td>1,10,072</td>
                     <td>3,103</td>
                     <td>1,319</td>
                     <td>48,003</td>
-                    <td><span class="badge success">43.61%</span></td>
+                    <td><span class="badge danger">43.61%</span></td>
                     <td>37,193</td>
                     <td><span class="badge success">77.48%</span></td>
                     <td>31</td>
