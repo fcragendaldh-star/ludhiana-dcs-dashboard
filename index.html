@@ -406,12 +406,12 @@
 
     <h2 style="margin: 30px 0 20px 0; padding-left: 10px;">Sub-Division Performance</h2>
     <p style="margin: -10px 0 20px 10px; color: var(--color-text-secondary); font-size: 0.9rem;">
-        Threshold flag (Survey &lt; 65% or Approval &lt; 45%): <strong>Payal, Raikot, Ludhiana (East), Ludhiana (West)</strong>
+        Daily target flag (Surveyed today &lt; Required daily target): <strong id="dailyTargetFlagText">Samrala, Khanna, Ludhiana (East), Ludhiana (West), Jagraon</strong>
     </p>
 
     <div class="subdivision-grid">
-        <div class="subdivision-card">
-            <h3>Samrala</h3>
+        <div class="subdivision-card threshold-alert">
+            <h3>Samrala <span class="threshold-tag">Below Daily Target</span></h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
@@ -453,8 +453,8 @@
                 </div>
             </div>
         </div>
-        <div class="subdivision-card">
-            <h3>Khanna</h3>
+        <div class="subdivision-card threshold-alert">
+            <h3>Khanna <span class="threshold-tag">Below Daily Target</span></h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
@@ -496,8 +496,8 @@
                 </div>
             </div>
         </div>
-        <div class="subdivision-card threshold-alert">
-            <h3>Payal <span class="threshold-tag">Approval &lt; 45%</span></h3>
+        <div class="subdivision-card">
+            <h3>Payal</h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
@@ -540,7 +540,7 @@
             </div>
         </div>
         <div class="subdivision-card threshold-alert">
-            <h3>Ludhiana (East) <span class="threshold-tag">Survey &lt; 65% | Approval &lt; 45%</span></h3>
+            <h3>Ludhiana (East) <span class="threshold-tag">Below Daily Target</span></h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
@@ -583,7 +583,7 @@
             </div>
         </div>
         <div class="subdivision-card threshold-alert">
-            <h3>Ludhiana (West) <span class="threshold-tag">Survey &lt; 65%</span></h3>
+            <h3>Ludhiana (West) <span class="threshold-tag">Below Daily Target</span></h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
@@ -625,8 +625,8 @@
                 </div>
             </div>
         </div>
-        <div class="subdivision-card threshold-alert">
-            <h3>Raikot <span class="threshold-tag">Approval &lt; 45%</span></h3>
+        <div class="subdivision-card">
+            <h3>Raikot</h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
@@ -668,8 +668,8 @@
                 </div>
             </div>
         </div>
-        <div class="subdivision-card">
-            <h3>Jagraon</h3>
+        <div class="subdivision-card threshold-alert">
+            <h3>Jagraon <span class="threshold-tag">Below Daily Target</span></h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
@@ -892,6 +892,49 @@
         const approvedPlots12Mar = [49153, 27353, 19629, 40005, 37193, 25427, 79958];
         const approvedPlots18Mar = [70759, 32621, 23087, 47255, 44529, 32075, 92645];
         const approvedPlotsIncreaseSince12Mar = approvedPlots18Mar.map((val, idx) => val - approvedPlots12Mar[idx]);
+
+        // Red-card logic: mark tehsils that are below daily target.
+        const targetStatusBySubdivision = Object.fromEntries(
+            subdivisions.map((name, index) => [
+                name,
+                {
+                    surveyedToday: dailyProgress[index],
+                    requiredDailyTarget: dailyTargets[index]
+                }
+            ])
+        );
+
+        const flaggedSubdivisions = [];
+        document.querySelectorAll('.subdivision-card').forEach((card) => {
+            const heading = card.querySelector('h3');
+            if (!heading) return;
+
+            const cardName = heading.textContent.replace(/\s*Below Daily Target\s*$/i, '').trim();
+            const status = targetStatusBySubdivision[cardName];
+            if (!status) return;
+
+            const isBelowTarget = status.surveyedToday < status.requiredDailyTarget;
+            card.classList.toggle('threshold-alert', isBelowTarget);
+
+            const existingTag = heading.querySelector('.threshold-tag');
+            if (existingTag) {
+                existingTag.remove();
+            }
+
+            if (isBelowTarget) {
+                const tag = document.createElement('span');
+                tag.className = 'threshold-tag';
+                tag.textContent = 'Below Daily Target';
+                heading.append(' ', tag);
+                flaggedSubdivisions.push(cardName);
+            }
+        });
+
+        const dailyTargetFlagText = document.getElementById('dailyTargetFlagText');
+        if (dailyTargetFlagText) {
+            dailyTargetFlagText.textContent = flaggedSubdivisions.join(', ') || 'None';
+        }
+
         const trafficColorByRank = (index, total) => {
             const topBand = Math.ceil(total / 3);
             const midBand = Math.ceil((2 * total) / 3);
