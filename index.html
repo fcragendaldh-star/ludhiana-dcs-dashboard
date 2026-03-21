@@ -713,7 +713,7 @@
         </div>
     </div>
 
-    <!-- Charts: survey, approval, surveyors, daily progress, approval increase, approved on specific date -->
+    <!-- Charts: survey, approval, surveyors, daily progress, required vs surveyed, approval increase, approved on specific date -->
     <div class="charts-grid">
         <div class="chart-container">
             <h3>Survey Completion</h3>
@@ -730,6 +730,10 @@
         <div class="chart-container">
             <h3>Daily Progress</h3>
             <canvas id="dailyChart" aria-label="Daily plots surveyed by subdivision" role="img"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Required vs Surveyed (Tehsil)</h3>
+            <canvas id="requiredVsSurveyedChart" aria-label="Required daily target versus surveyed today by tehsil" role="img"></canvas>
         </div>
         <div class="chart-container">
             <h3>Approved Plots Increase Since 12 Mar</h3>
@@ -974,6 +978,9 @@
         const dailyValues = mapByIndices(dailyProgress, dailySortIdx);
         const dailyTargetValues = mapByIndices(dailyTargets, dailySortIdx);
         const dailyPointColors = trafficColorsForSorted(dailyValues.length);
+        const requiredVsSurveyedActualColors = subdivisions.map((_, idx) =>
+            dailyProgress[idx] >= dailyTargets[idx] ? chartColors.success : chartColors.danger
+        );
 
         const approvalIncreaseSortIdx = sortIndicesDesc(approvedPlotsIncreaseSince12Mar);
         const approvalIncreaseLabels = mapByIndices(subdivisions, approvalIncreaseSortIdx);
@@ -1149,6 +1156,54 @@
                                 return `${context.parsed.y.toLocaleString()} plots | Target: ${dailyTargetValues[i].toLocaleString()} (${status})`;
                             }
                         }
+                    }
+                }
+            }
+        });
+
+        // Required daily target vs surveyed today by tehsil
+        new Chart(document.getElementById('requiredVsSurveyedChart'), {
+            type: 'bar',
+            data: {
+                labels: subdivisions,
+                datasets: [{
+                    label: 'Required Daily Target',
+                    data: dailyTargets,
+                    backgroundColor: chartColors.warning + '99',
+                    borderColor: chartColors.warning,
+                    borderWidth: 1
+                }, {
+                    label: 'Surveyed Today',
+                    data: dailyProgress,
+                    backgroundColor: requiredVsSurveyedActualColors,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                ...chartOptions,
+                plugins: {
+                    ...chartOptions.plugins,
+                    datalabels: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => `${context.dataset.label}: ${context.parsed.y.toLocaleString()}`
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: chartColors.text,
+                            callback: (value) => Number(value).toLocaleString()
+                        },
+                        grid: { color: chartColors.grid }
+                    },
+                    x: {
+                        ticks: { color: chartColors.text, font: { size: 10 } },
+                        grid: { color: chartColors.grid }
                     }
                 }
             }
