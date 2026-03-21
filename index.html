@@ -875,6 +875,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <script>
+        // Explicit plugin registration ensures datalabels render consistently in Chart.js v4.
+        if (typeof ChartDataLabels !== 'undefined') {
+            Chart.register(ChartDataLabels);
+        }
+
         const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         
         const chartColors = {
@@ -1141,6 +1146,8 @@
                         anchor: 'end',
                         align: 'top',
                         offset: 4,
+                        clamp: true,
+                        clip: false,
                         color: chartColors.text,
                         backgroundColor: isDark ? 'rgba(15, 23, 42, 0.75)' : 'rgba(255, 255, 255, 0.85)',
                         borderRadius: 4,
@@ -1188,6 +1195,8 @@
                         anchor: 'end',
                         align: 'top',
                         offset: 4,
+                        clamp: true,
+                        clip: false,
                         color: chartColors.text,
                         backgroundColor: isDark ? 'rgba(15, 23, 42, 0.75)' : 'rgba(255, 255, 255, 0.85)',
                         borderRadius: 4,
@@ -1214,6 +1223,9 @@
                         ticks: { color: chartColors.text, font: { size: 10 } },
                         grid: { color: chartColors.grid }
                     }
+                },
+                layout: {
+                    padding: { top: 16 }
                 }
             }
         });
