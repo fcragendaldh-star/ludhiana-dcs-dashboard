@@ -1184,7 +1184,16 @@
                 plugins: {
                     ...chartOptions.plugins,
                     datalabels: {
-                        display: false
+                        display: true,
+                        anchor: 'end',
+                        align: 'top',
+                        offset: 4,
+                        color: chartColors.text,
+                        backgroundColor: isDark ? 'rgba(15, 23, 42, 0.75)' : 'rgba(255, 255, 255, 0.85)',
+                        borderRadius: 4,
+                        padding: 3,
+                        font: { weight: '600', size: 10 },
+                        formatter: (value) => Number(value).toLocaleString()
                     },
                     tooltip: {
                         callbacks: {
