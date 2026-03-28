@@ -949,6 +949,9 @@
                 }
             ])
         );
+        const surveyProgressBySubdivision = Object.fromEntries(
+            subdivisions.map((name, index) => [name, surveyPercentages[index]])
+        );
 
         const flaggedSubdivisions = [];
         document.querySelectorAll('.subdivision-card').forEach((card) => {
@@ -958,6 +961,13 @@
             const cardName = heading.textContent.replace(/\s*Below Daily Target\s*$/i, '').trim();
             const status = targetStatusBySubdivision[cardName];
             if (!status) return;
+            const surveyProgress = surveyProgressBySubdivision[cardName] ?? 0;
+
+            const surveyFill = card.querySelector('.progress-section .progress-fill');
+            if (surveyFill) {
+                surveyFill.classList.remove('low', 'medium', 'high');
+                surveyFill.classList.add(surveyProgress < 80 ? 'low' : 'high');
+            }
 
             const isBelowTarget = status.surveyedToday < status.requiredDailyTarget;
             card.classList.toggle('threshold-alert', isBelowTarget);
