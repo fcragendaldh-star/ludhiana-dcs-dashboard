@@ -368,7 +368,7 @@
 <body>
     <div class="header">
         <h1>Digital Crop Survey Dashboard</h1>
-        <p>Ludhiana District | Data as of 27th March 2026</p>
+        <p>Ludhiana District | Data as of 1st April 2026</p>
     </div>
 
     <div class="stats-grid">
@@ -384,359 +384,187 @@
         </div>
         <div class="stat-card success">
             <div class="stat-label">Total Surveyed</div>
-            <div class="stat-value">7,19,529</div>
-            <div class="stat-subtext">80.53% completion</div>
+            <div class="stat-value">7,73,172</div>
+            <div class="stat-subtext">86.53% completion</div>
         </div>
         <div class="stat-card warning">
             <div class="stat-label">Approved by Supervisor</div>
-            <div class="stat-value">4,83,903</div>
-            <div class="stat-subtext">67.25% of surveyed</div>
+            <div class="stat-value">5,61,812</div>
+            <div class="stat-subtext">72.66% of surveyed</div>
         </div>
         <div class="stat-card danger">
-            <div class="stat-label">Daily Target Required</div>
-            <div class="stat-value">34,792</div>
-            <div class="stat-subtext">To complete by 31st March</div>
+            <div class="stat-label">Adj. Pendency (Excl. Inaccessible)</div>
+            <div class="stat-value">95,049</div>
+            <div class="stat-subtext">Pendency 1,20,316 - Inaccessible 25,267</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">Uploaded Villages</div>
-            <div class="stat-value">755</div>
-            <div class="stat-subtext">Surveyed on 27-03-2026: 9,457</div>
+            <div class="stat-label">Required / Day till 10 Apr</div>
+            <div class="stat-value">10,561</div>
+            <div class="stat-subtext">Surveyed on 01-04-2026: 7,852 | Villages: 755</div>
         </div>
     </div>
 
     <h2 style="margin: 30px 0 20px 0; padding-left: 10px;">Sub-Division Performance</h2>
     <p style="margin: -10px 0 20px 10px; color: var(--color-text-secondary); font-size: 0.9rem;">
-        Daily target flag (Surveyed today &lt; Required daily target): <strong id="dailyTargetFlagText">Samrala, Khanna, Payal, Ludhiana (East), Ludhiana (West), Raikot, Jagraon</strong>
+        Daily target flag (Surveyed today &lt; Required daily target): <strong id="dailyTargetFlagText">Khanna, Payal, Ludhiana (East), Ludhiana (West), Raikot</strong>
     </p>
 
     <div class="subdivision-grid">
-        <div class="subdivision-card threshold-alert">
-            <h3>Samrala <span class="threshold-tag">Below Daily Target</span></h3>
+        <div class="subdivision-card">
+            <h3>Samrala</h3>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Survey Progress</span>
-                    <span><strong>90.08%</strong></span>
+                    <span><strong>94.47%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 90.08%;"></div>
+                    <div class="progress-fill high" style="width: 94.47%;"></div>
                 </div>
             </div>
             <div class="progress-section">
                 <div class="progress-label">
                     <span>Approval Rate</span>
-                    <span><strong>76.47%</strong></span>
+                    <span><strong>80.80%</strong></span>
                 </div>
                 <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 76.47%;"></div>
+                    <div class="progress-fill high" style="width: 80.80%;"></div>
                 </div>
             </div>
             <div class="detail-grid">
-                <div class="detail-item">
-                    <span class="detail-label">Total Plots</span>
-                    <span class="detail-value">1,44,395</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">1,30,077</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Approved</span>
-                    <span class="detail-value">99,470</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Unable to Survey</span>
-                    <span class="detail-value">1,792</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyors</span>
-                    <span class="detail-value">49</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">In Field</span>
-                    <span class="detail-value">16</span>
-                </div>
+                <div class="detail-item"><span class="detail-label">Total Plots</span><span class="detail-value">1,44,395</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyed</span><span class="detail-value">1,36,410</span></div>
+                <div class="detail-item"><span class="detail-label">Pendency Left</span><span class="detail-value">7,985</span></div>
+                <div class="detail-item"><span class="detail-label">Inaccessible</span><span class="detail-value">3,784</span></div>
+                <div class="detail-item"><span class="detail-label">Adj. Pendency</span><span class="detail-value">4,201</span></div>
+                <div class="detail-item"><span class="detail-label">Approved</span><span class="detail-value">1,10,214</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyors</span><span class="detail-value">49</span></div>
+                <div class="detail-item"><span class="detail-label">In Field</span><span class="detail-value">9</span></div>
             </div>
         </div>
         <div class="subdivision-card threshold-alert">
             <h3>Khanna <span class="threshold-tag">Below Daily Target</span></h3>
             <div class="progress-section">
-                <div class="progress-label">
-                    <span>Survey Progress</span>
-                    <span><strong>92.83%</strong></span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 92.83%;"></div>
-                </div>
+                <div class="progress-label"><span>Survey Progress</span><span><strong>93.13%</strong></span></div>
+                <div class="progress-bar"><div class="progress-fill high" style="width: 93.13%;"></div></div>
             </div>
             <div class="progress-section">
-                <div class="progress-label">
-                    <span>Approval Rate</span>
-                    <span><strong>81.10%</strong></span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 81.10%;"></div>
-                </div>
+                <div class="progress-label"><span>Approval Rate</span><span><strong>86.78%</strong></span></div>
+                <div class="progress-bar"><div class="progress-fill high" style="width: 86.78%;"></div></div>
             </div>
             <div class="detail-grid">
-                <div class="detail-item">
-                    <span class="detail-label">Total Plots</span>
-                    <span class="detail-value">55,406</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">51,433</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Approved</span>
-                    <span class="detail-value">41,711</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Unable to Survey</span>
-                    <span class="detail-value">1,072</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyors</span>
-                    <span class="detail-value">21</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">In Field</span>
-                    <span class="detail-value">0</span>
-                </div>
+                <div class="detail-item"><span class="detail-label">Total Plots</span><span class="detail-value">55,406</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyed</span><span class="detail-value">51,602</span></div>
+                <div class="detail-item"><span class="detail-label">Pendency Left</span><span class="detail-value">3,804</span></div>
+                <div class="detail-item"><span class="detail-label">Inaccessible</span><span class="detail-value">1,743</span></div>
+                <div class="detail-item"><span class="detail-label">Adj. Pendency</span><span class="detail-value">2,061</span></div>
+                <div class="detail-item"><span class="detail-label">Approved</span><span class="detail-value">44,778</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyors</span><span class="detail-value">21</span></div>
+                <div class="detail-item"><span class="detail-label">In Field</span><span class="detail-value">1</span></div>
             </div>
         </div>
         <div class="subdivision-card threshold-alert">
             <h3>Payal <span class="threshold-tag">Below Daily Target</span></h3>
             <div class="progress-section">
-                <div class="progress-label">
-                    <span>Survey Progress</span>
-                    <span><strong>99.13%</strong></span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 99.13%;"></div>
-                </div>
+                <div class="progress-label"><span>Survey Progress</span><span><strong>99.13%</strong></span></div>
+                <div class="progress-bar"><div class="progress-fill high" style="width: 99.13%;"></div></div>
             </div>
             <div class="progress-section">
-                <div class="progress-label">
-                    <span>Approval Rate</span>
-                    <span><strong>58.14%</strong></span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 58.14%;"></div>
-                </div>
+                <div class="progress-label"><span>Approval Rate</span><span><strong>80.24%</strong></span></div>
+                <div class="progress-bar"><div class="progress-fill high" style="width: 80.24%;"></div></div>
             </div>
             <div class="detail-grid">
-                <div class="detail-item">
-                    <span class="detail-label">Total Plots</span>
-                    <span class="detail-value">76,987</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">76,315</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Approved</span>
-                    <span class="detail-value">44,369</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Unable to Survey</span>
-                    <span class="detail-value">201</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyors</span>
-                    <span class="detail-value">27</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">In Field</span>
-                    <span class="detail-value">1</span>
-                </div>
+                <div class="detail-item"><span class="detail-label">Total Plots</span><span class="detail-value">76,987</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyed</span><span class="detail-value">76,315</span></div>
+                <div class="detail-item"><span class="detail-label">Pendency Left</span><span class="detail-value">672</span></div>
+                <div class="detail-item"><span class="detail-label">Inaccessible</span><span class="detail-value">310</span></div>
+                <div class="detail-item"><span class="detail-label">Adj. Pendency</span><span class="detail-value">362</span></div>
+                <div class="detail-item"><span class="detail-label">Approved</span><span class="detail-value">61,237</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyors</span><span class="detail-value">27</span></div>
+                <div class="detail-item"><span class="detail-label">In Field</span><span class="detail-value">0</span></div>
             </div>
         </div>
         <div class="subdivision-card threshold-alert">
             <h3>Ludhiana (East) <span class="threshold-tag">Below Daily Target</span></h3>
             <div class="progress-section">
-                <div class="progress-label">
-                    <span>Survey Progress</span>
-                    <span><strong>72.09%</strong></span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 72.09%;"></div>
-                </div>
+                <div class="progress-label"><span>Survey Progress</span><span><strong>77.33%</strong></span></div>
+                <div class="progress-bar"><div class="progress-fill low" style="width: 77.33%;"></div></div>
             </div>
             <div class="progress-section">
-                <div class="progress-label">
-                    <span>Approval Rate</span>
-                    <span><strong>48.57%</strong></span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 48.57%;"></div>
-                </div>
+                <div class="progress-label"><span>Approval Rate</span><span><strong>55.32%</strong></span></div>
+                <div class="progress-bar"><div class="progress-fill high" style="width: 55.32%;"></div></div>
             </div>
             <div class="detail-grid">
-                <div class="detail-item">
-                    <span class="detail-label">Total Plots</span>
-                    <span class="detail-value">1,75,312</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">1,26,382</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Approved</span>
-                    <span class="detail-value">61,382</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Unable to Survey</span>
-                    <span class="detail-value">11,585</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyors</span>
-                    <span class="detail-value">47</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">In Field</span>
-                    <span class="detail-value">20</span>
-                </div>
+                <div class="detail-item"><span class="detail-label">Total Plots</span><span class="detail-value">1,75,312</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyed</span><span class="detail-value">1,35,569</span></div>
+                <div class="detail-item"><span class="detail-label">Pendency Left</span><span class="detail-value">39,743</span></div>
+                <div class="detail-item"><span class="detail-label">Inaccessible</span><span class="detail-value">15,253</span></div>
+                <div class="detail-item"><span class="detail-label">Adj. Pendency</span><span class="detail-value">24,490</span></div>
+                <div class="detail-item"><span class="detail-label">Approved</span><span class="detail-value">74,990</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyors</span><span class="detail-value">47</span></div>
+                <div class="detail-item"><span class="detail-label">In Field</span><span class="detail-value">19</span></div>
             </div>
         </div>
         <div class="subdivision-card threshold-alert">
             <h3>Ludhiana (West) <span class="threshold-tag">Below Daily Target</span></h3>
             <div class="progress-section">
-                <div class="progress-label">
-                    <span>Survey Progress</span>
-                    <span><strong>58.86%</strong></span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill low" style="width: 58.86%;"></div>
-                </div>
+                <div class="progress-label"><span>Survey Progress</span><span><strong>66.93%</strong></span></div>
+                <div class="progress-bar"><div class="progress-fill low" style="width: 66.93%;"></div></div>
             </div>
             <div class="progress-section">
-                <div class="progress-label">
-                    <span>Approval Rate</span>
-                    <span><strong>81.61%</strong></span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 81.61%;"></div>
-                </div>
+                <div class="progress-label"><span>Approval Rate</span><span><strong>81.34%</strong></span></div>
+                <div class="progress-bar"><div class="progress-fill high" style="width: 81.34%;"></div></div>
             </div>
             <div class="detail-grid">
-                <div class="detail-item">
-                    <span class="detail-label">Total Plots</span>
-                    <span class="detail-value">1,17,925</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">69,412</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Approved</span>
-                    <span class="detail-value">56,649</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Unable to Survey</span>
-                    <span class="detail-value">233</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyors</span>
-                    <span class="detail-value">31</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">In Field</span>
-                    <span class="detail-value">18</span>
-                </div>
+                <div class="detail-item"><span class="detail-label">Total Plots</span><span class="detail-value">1,17,925</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyed</span><span class="detail-value">78,928</span></div>
+                <div class="detail-item"><span class="detail-label">Pendency Left</span><span class="detail-value">38,997</span></div>
+                <div class="detail-item"><span class="detail-label">Inaccessible</span><span class="detail-value">237</span></div>
+                <div class="detail-item"><span class="detail-label">Adj. Pendency</span><span class="detail-value">38,760</span></div>
+                <div class="detail-item"><span class="detail-label">Approved</span><span class="detail-value">64,197</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyors</span><span class="detail-value">31</span></div>
+                <div class="detail-item"><span class="detail-label">In Field</span><span class="detail-value">16</span></div>
             </div>
         </div>
         <div class="subdivision-card threshold-alert">
             <h3>Raikot <span class="threshold-tag">Below Daily Target</span></h3>
             <div class="progress-section">
-                <div class="progress-label">
-                    <span>Survey Progress</span>
-                    <span><strong>79.85%</strong></span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 79.85%;"></div>
-                </div>
+                <div class="progress-label"><span>Survey Progress</span><span><strong>87.54%</strong></span></div>
+                <div class="progress-bar"><div class="progress-fill high" style="width: 87.54%;"></div></div>
             </div>
             <div class="progress-section">
-                <div class="progress-label">
-                    <span>Approval Rate</span>
-                    <span><strong>55.49%</strong></span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 55.49%;"></div>
-                </div>
+                <div class="progress-label"><span>Approval Rate</span><span><strong>60.73%</strong></span></div>
+                <div class="progress-bar"><div class="progress-fill high" style="width: 60.73%;"></div></div>
             </div>
             <div class="detail-grid">
-                <div class="detail-item">
-                    <span class="detail-label">Total Plots</span>
-                    <span class="detail-value">1,14,947</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">91,782</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Approved</span>
-                    <span class="detail-value">50,931</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Unable to Survey</span>
-                    <span class="detail-value">63</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyors</span>
-                    <span class="detail-value">23</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">In Field</span>
-                    <span class="detail-value">10</span>
-                </div>
+                <div class="detail-item"><span class="detail-label">Total Plots</span><span class="detail-value">1,14,947</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyed</span><span class="detail-value">1,00,627</span></div>
+                <div class="detail-item"><span class="detail-label">Pendency Left</span><span class="detail-value">14,320</span></div>
+                <div class="detail-item"><span class="detail-label">Inaccessible</span><span class="detail-value">344</span></div>
+                <div class="detail-item"><span class="detail-label">Adj. Pendency</span><span class="detail-value">13,976</span></div>
+                <div class="detail-item"><span class="detail-label">Approved</span><span class="detail-value">61,107</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyors</span><span class="detail-value">23</span></div>
+                <div class="detail-item"><span class="detail-label">In Field</span><span class="detail-value">10</span></div>
             </div>
         </div>
-        <div class="subdivision-card threshold-alert">
-            <h3>Jagraon <span class="threshold-tag">Below Daily Target</span></h3>
+        <div class="subdivision-card">
+            <h3>Jagraon</h3>
             <div class="progress-section">
-                <div class="progress-label">
-                    <span>Survey Progress</span>
-                    <span><strong>83.51%</strong></span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 83.51%;"></div>
-                </div>
+                <div class="progress-label"><span>Survey Progress</span><span><strong>92.90%</strong></span></div>
+                <div class="progress-bar"><div class="progress-fill high" style="width: 92.90%;"></div></div>
             </div>
             <div class="progress-section">
-                <div class="progress-label">
-                    <span>Approval Rate</span>
-                    <span><strong>74.31%</strong></span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill high" style="width: 74.31%;"></div>
-                </div>
+                <div class="progress-label"><span>Approval Rate</span><span><strong>75.00%</strong></span></div>
+                <div class="progress-bar"><div class="progress-fill high" style="width: 75.00%;"></div></div>
             </div>
             <div class="detail-grid">
-                <div class="detail-item">
-                    <span class="detail-label">Total Plots</span>
-                    <span class="detail-value">2,08,516</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyed Plots</span>
-                    <span class="detail-value">1,74,128</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Approved</span>
-                    <span class="detail-value">1,29,391</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Unable to Survey</span>
-                    <span class="detail-value">2,982</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">Surveyors</span>
-                    <span class="detail-value">52</span>
-                </div>
-                <div class="detail-item">
-                    <span class="detail-label">In Field</span>
-                    <span class="detail-value">20</span>
-                </div>
+                <div class="detail-item"><span class="detail-label">Total Plots</span><span class="detail-value">2,08,516</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyed</span><span class="detail-value">1,93,721</span></div>
+                <div class="detail-item"><span class="detail-label">Pendency Left</span><span class="detail-value">14,795</span></div>
+                <div class="detail-item"><span class="detail-label">Inaccessible</span><span class="detail-value">3,596</span></div>
+                <div class="detail-item"><span class="detail-label">Adj. Pendency</span><span class="detail-value">11,199</span></div>
+                <div class="detail-item"><span class="detail-label">Approved</span><span class="detail-value">1,45,289</span></div>
+                <div class="detail-item"><span class="detail-label">Surveyors</span><span class="detail-value">52</span></div>
+                <div class="detail-item"><span class="detail-label">In Field</span><span class="detail-value">15</span></div>
             </div>
         </div>
     </div>
@@ -764,12 +592,12 @@
             <canvas id="requiredVsSurveyedChart" aria-label="Required daily target versus surveyed today by tehsil" role="img"></canvas>
         </div>
         <div class="chart-container">
-            <h3>Approved Plots Increase Since 18 Mar</h3>
-            <canvas id="verificationIncreaseChart" aria-label="Increase in approved plots from 18 March to 27 March 2026 by tehsil" role="img"></canvas>
+            <h3>Approved Plots Increase Since 27 Mar</h3>
+            <canvas id="verificationIncreaseChart" aria-label="Increase in approved plots from 27 March to 1 April 2026 by tehsil" role="img"></canvas>
         </div>
         <div class="chart-container">
-            <h3>Approved Plots Till 27 Mar</h3>
-            <canvas id="approvedTodayChart" aria-label="Total Approved Plots Till 27 March 2026 by tehsil" role="img"></canvas>
+            <h3>Approved Plots Till 1 Apr</h3>
+            <canvas id="approvedTodayChart" aria-label="Total approved plots till 1 April 2026 by tehsil" role="img"></canvas>
         </div>
     </div>
 
@@ -781,129 +609,43 @@
                     <th>Sub Division</th>
                     <th>Uploaded Villages</th>
                     <th>Uploaded Plots</th>
-                    <th>Daily Target</th>
-                    <th>Surveyed (27-3-26)</th>
                     <th>Total Surveyed</th>
                     <th>Survey %</th>
+                    <th>Pendency Left</th>
+                    <th>Inaccessible</th>
+                    <th>Adj. Pendency</th>
+                    <th>Required / Day (10 Apr)</th>
+                    <th>Surveyed (1-4-26)</th>
                     <th>Approved</th>
                     <th>Approval %</th>
-                    <th>Unable to Survey</th>
-                    <th>Total Surveyors</th>
+                    <th>Private IDs</th>
                     <th>In Field</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Samrala</strong></td>
-                    <td>184</td>
-                    <td>1,44,395</td>
-                    <td>2,864</td>
-                    <td>667</td>
-                    <td>1,30,077</td>
-                    <td><span class="badge success">90.08%</span></td>
-                    <td>99,470</td>
-                    <td><span class="badge success">76.47%</span></td>
-                    <td>1,792</td>
-                    <td>49</td>
-                    <td>16</td>
+                    <td><strong>Samrala</strong></td><td>184</td><td>1,44,395</td><td>1,36,410</td><td><span class="badge success">94.47%</span></td><td>7,985</td><td>3,784</td><td>4,201</td><td>467</td><td>914</td><td>1,10,214</td><td><span class="badge success">80.80%</span></td><td>49</td><td>9</td>
                 </tr>
                 <tr>
-                    <td><strong>Khanna</strong></td>
-                    <td>57</td>
-                    <td>55,406</td>
-                    <td>795</td>
-                    <td>0</td>
-                    <td>51,433</td>
-                    <td><span class="badge success">92.83%</span></td>
-                    <td>41,711</td>
-                    <td><span class="badge success">81.10%</span></td>
-                    <td>1,072</td>
-                    <td>21</td>
-                    <td>0</td>
+                    <td><strong>Khanna</strong></td><td>57</td><td>55,406</td><td>51,602</td><td><span class="badge success">93.13%</span></td><td>3,804</td><td>1,743</td><td>2,061</td><td>229</td><td>63</td><td>44,778</td><td><span class="badge success">86.78%</span></td><td>21</td><td>1</td>
                 </tr>
                 <tr>
-                    <td><strong>Payal</strong></td>
-                    <td>69</td>
-                    <td>76,987</td>
-                    <td>134</td>
-                    <td>95</td>
-                    <td>76,315</td>
-                    <td><span class="badge success">99.13%</span></td>
-                    <td>44,369</td>
-                    <td><span class="badge success">58.14%</span></td>
-                    <td>201</td>
-                    <td>27</td>
-                    <td>1</td>
+                    <td><strong>Payal</strong></td><td>69</td><td>76,987</td><td>76,315</td><td><span class="badge success">99.13%</span></td><td>672</td><td>310</td><td>362</td><td>40</td><td>0</td><td>61,237</td><td><span class="badge success">80.24%</span></td><td>27</td><td>0</td>
                 </tr>
                 <tr>
-                    <td><strong>Ludhiana (East)</strong></td>
-                    <td>171</td>
-                    <td>1,75,312</td>
-                    <td>9,786</td>
-                    <td>1,823</td>
-                    <td>1,26,382</td>
-                    <td><span class="badge success">72.09%</span></td>
-                    <td>61,382</td>
-                    <td><span class="badge success">48.57%</span></td>
-                    <td>11,585</td>
-                    <td>47</td>
-                    <td>20</td>
+                    <td><strong>Ludhiana (East)</strong></td><td>171</td><td>1,75,312</td><td>1,35,569</td><td><span class="badge danger">77.33%</span></td><td>39,743</td><td>15,253</td><td>24,490</td><td>2,721</td><td>1,763</td><td>74,990</td><td><span class="badge success">55.32%</span></td><td>47</td><td>19</td>
                 </tr>
                 <tr>
-                    <td><strong>Ludhiana (West)</strong></td>
-                    <td>96</td>
-                    <td>1,17,925</td>
-                    <td>9,703</td>
-                    <td>1,506</td>
-                    <td>69,412</td>
-                    <td><span class="badge danger">58.86%</span></td>
-                    <td>56,649</td>
-                    <td><span class="badge success">81.61%</span></td>
-                    <td>233</td>
-                    <td>31</td>
-                    <td>18</td>
+                    <td><strong>Ludhiana (West)</strong></td><td>96</td><td>1,17,925</td><td>78,928</td><td><span class="badge danger">66.93%</span></td><td>38,997</td><td>237</td><td>38,760</td><td>4,307</td><td>1,146</td><td>64,197</td><td><span class="badge success">81.34%</span></td><td>31</td><td>16</td>
                 </tr>
                 <tr>
-                    <td><strong>Raikot</strong></td>
-                    <td>58</td>
-                    <td>1,14,947</td>
-                    <td>4,633</td>
-                    <td>1,384</td>
-                    <td>91,782</td>
-                    <td><span class="badge success">79.85%</span></td>
-                    <td>50,931</td>
-                    <td><span class="badge success">55.49%</span></td>
-                    <td>63</td>
-                    <td>23</td>
-                    <td>10</td>
+                    <td><strong>Raikot</strong></td><td>58</td><td>1,14,947</td><td>1,00,627</td><td><span class="badge success">87.54%</span></td><td>14,320</td><td>344</td><td>13,976</td><td>1,553</td><td>1,485</td><td>61,107</td><td><span class="badge success">60.73%</span></td><td>23</td><td>10</td>
                 </tr>
                 <tr>
-                    <td><strong>Jagraon</strong></td>
-                    <td>120</td>
-                    <td>2,08,516</td>
-                    <td>6,878</td>
-                    <td>3,982</td>
-                    <td>1,74,128</td>
-                    <td><span class="badge success">83.51%</span></td>
-                    <td>1,29,391</td>
-                    <td><span class="badge success">74.31%</span></td>
-                    <td>2,982</td>
-                    <td>52</td>
-                    <td>20</td>
+                    <td><strong>Jagraon</strong></td><td>120</td><td>2,08,516</td><td>1,93,721</td><td><span class="badge success">92.90%</span></td><td>14,795</td><td>3,596</td><td>11,199</td><td>1,244</td><td>2,481</td><td>1,45,289</td><td><span class="badge success">75.00%</span></td><td>52</td><td>15</td>
                 </tr>
                 <tr>
-                    <td><strong>Total</strong></td>
-                    <td><strong>755</strong></td>
-                    <td><strong>8,93,488</strong></td>
-                    <td><strong>34,792</strong></td>
-                    <td><strong>9,457</strong></td>
-                    <td><strong>7,19,529</strong></td>
-                    <td><span class="badge success">80.53%</span></td>
-                    <td><strong>4,83,903</strong></td>
-                    <td><span class="badge success">67.25%</span></td>
-                    <td><strong>17,928</strong></td>
-                    <td><strong>250</strong></td>
-                    <td><strong>85</strong></td>
+                    <td><strong>Total</strong></td><td><strong>755</strong></td><td><strong>8,93,488</strong></td><td><strong>7,73,172</strong></td><td><span class="badge success">86.53%</span></td><td><strong>1,20,316</strong></td><td><strong>25,267</strong></td><td><strong>95,049</strong></td><td><strong>10,561</strong></td><td><strong>7,852</strong></td><td><strong>5,61,812</strong></td><td><span class="badge success">72.66%</span></td><td><strong>250</strong></td><td><strong>70</strong></td>
                 </tr>
             </tbody>
         </table>
@@ -929,15 +671,18 @@
         };
 
         const subdivisions = ['Samrala', 'Khanna', 'Payal', 'Ludhiana (East)', 'Ludhiana (West)', 'Raikot', 'Jagraon'];
-        const surveyPercentages = [90.08, 92.83, 99.13, 72.09, 58.86, 79.85, 83.51];
-        const approvalPercentages = [76.47, 81.10, 58.14, 48.57, 81.61, 55.49, 74.31];
+        const surveyPercentages = [94.47, 93.13, 99.13, 77.33, 66.93, 87.54, 92.90];
+        const approvalPercentages = [80.80, 86.78, 80.24, 55.32, 81.34, 60.73, 75.00];
         const totalSurveyors = [49, 21, 27, 47, 31, 23, 52];
-        const inField = [16, 0, 1, 20, 18, 10, 20];
-        const dailyProgress = [667, 0, 95, 1823, 1506, 1384, 3982];
-        const dailyTargets = [2864, 795, 134, 9786, 9703, 4633, 6878];
-        const approvedPlots18Mar = [70759, 32621, 23087, 47255, 44529, 32075, 92645];
+        const inField = [9, 1, 0, 19, 16, 10, 15];
+        const dailyProgress = [914, 63, 0, 1763, 1146, 1485, 2481];
+        const dailyTargets = [467, 229, 40, 2721, 4307, 1553, 1244];
+        const pendencyLeft = [7985, 3804, 672, 39743, 38997, 14320, 14795];
+        const inaccessiblePlots = [3784, 1743, 310, 15253, 237, 344, 3596];
+        const adjustedPendency = [4201, 2061, 362, 24490, 38760, 13976, 11199];
         const approvedPlots27Mar = [99470, 41711, 44369, 61382, 56649, 50931, 129391];
-        const approvedPlotsIncreaseSince18Mar = approvedPlots27Mar.map((val, idx) => val - approvedPlots18Mar[idx]);
+        const approvedPlots1Apr = [110214, 44778, 61237, 74990, 64197, 61107, 145289];
+        const approvedPlotsIncreaseSince27Mar = approvedPlots1Apr.map((val, idx) => val - approvedPlots27Mar[idx]);
 
         // Red-card logic: mark tehsils that are below daily target.
         const targetStatusBySubdivision = Object.fromEntries(
@@ -1034,14 +779,14 @@
             dailyProgress[idx] >= dailyTargets[idx] ? chartColors.success : chartColors.danger
         );
 
-        const approvalIncreaseSortIdx = sortIndicesDesc(approvedPlotsIncreaseSince18Mar);
+        const approvalIncreaseSortIdx = sortIndicesDesc(approvedPlotsIncreaseSince27Mar);
         const approvalIncreaseLabels = mapByIndices(subdivisions, approvalIncreaseSortIdx);
-        const approvalIncreaseValues = mapByIndices(approvedPlotsIncreaseSince18Mar, approvalIncreaseSortIdx);
+        const approvalIncreaseValues = mapByIndices(approvedPlotsIncreaseSince27Mar, approvalIncreaseSortIdx);
         const approvedIncreasePointColors = trafficColorsForSorted(approvalIncreaseValues.length);
 
-        const approvedTodaySortIdx = sortIndicesDesc(approvedPlots27Mar);
+        const approvedTodaySortIdx = sortIndicesDesc(approvedPlots1Apr);
         const approvedTodayLabels = mapByIndices(subdivisions, approvedTodaySortIdx);
-        const approvedTodayValues = mapByIndices(approvedPlots27Mar, approvedTodaySortIdx);
+        const approvedTodayValues = mapByIndices(approvedPlots1Apr, approvedTodaySortIdx);
 
         const surveyChartColors = trafficColorsForSorted(surveyValues.length);
         const approvalChartColors = trafficColorsForSorted(approvalValues.length);
@@ -1172,7 +917,7 @@
             data: {
                 labels: dailyLabels,
                 datasets: [{
-                    label: 'Plots Surveyed (27th Mar)',
+                    label: 'Plots Surveyed (1st Apr)',
                     data: dailyValues,
                     borderColor: chartColors.primary,
                     backgroundColor: chartColors.primary + '40',
@@ -1277,13 +1022,13 @@
             }
         });
 
-        // Approved Plots Increase Since 18 Mar (uses 27 Mar vs 18 Mar totals)
+        // Approved Plots Increase Since 27 Mar (uses 1 Apr vs 27 Mar totals)
         new Chart(document.getElementById('verificationIncreaseChart'), {
             type: 'line',
             data: {
                 labels: approvalIncreaseLabels,
                 datasets: [{
-                    label: 'Approved Plots Increase Since 18 Mar',
+                    label: 'Approved Plots Increase Since 27 Mar',
                     data: approvalIncreaseValues,
                     borderColor: chartColors.primary,
                     backgroundColor: chartColors.primary + '30',
@@ -1334,13 +1079,13 @@
             }
         });
 
-        // Approved totals till 27 Mar
+        // Approved totals till 1 Apr
         new Chart(document.getElementById('approvedTodayChart'), {
             type: 'bar',
             data: {
                 labels: approvedTodayLabels,
                 datasets: [{
-                    label: 'Approved Plots Till 27 Mar',
+                    label: 'Approved Plots Till 1 Apr',
                     data: approvedTodayValues,
                     backgroundColor: approvedTodayChartColors,
                     borderWidth: 0
