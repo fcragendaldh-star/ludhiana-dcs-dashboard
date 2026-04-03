@@ -201,6 +201,31 @@
             border: 1px solid #fca5a5;
         }
 
+        .mussavi-table-container {
+            background: var(--color-bg-secondary);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+
+        .mussavi-table-container h2 {
+            margin-bottom: 15px;
+            color: var(--color-primary);
+        }
+
+        .mussavi-row-top td {
+            background: #fee2e2;
+        }
+
+        .mussavi-row-high td {
+            background: #fff7ed;
+        }
+
+        .mussavi-row-low td {
+            background: #f0fdf4;
+        }
+
         .subdivision-card h3 {
             color: var(--color-primary);
             margin-bottom: 15px;
@@ -426,6 +451,18 @@
                 background: rgba(239, 68, 68, 0.18);
                 border-color: rgba(252, 165, 165, 0.60);
             }
+
+            .mussavi-row-top td {
+                background: rgba(239, 68, 68, 0.22);
+            }
+
+            .mussavi-row-high td {
+                background: rgba(245, 158, 11, 0.16);
+            }
+
+            .mussavi-row-low td {
+                background: rgba(16, 185, 129, 0.16);
+            }
         }
 
         .charts-grid {
@@ -485,6 +522,7 @@
     <div class="tab-nav" role="tablist" aria-label="Tracker Tabs">
         <button class="tab-button active" type="button" role="tab" aria-selected="true" aria-controls="digital-crop-survey-panel" id="tab-digital-crop-survey" data-tab="digital-crop-survey">Digital Crop Survey</button>
         <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="svamitva-panel" id="tab-svamitva" data-tab="svamitva">Svamitva</button>
+        <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="mussavi-panel" id="tab-mussavi" data-tab="mussavi">Mussavi</button>
     </div>
 
     <section class="tab-panel" id="digital-crop-survey-panel" role="tabpanel" aria-labelledby="tab-digital-crop-survey" data-panel="digital-crop-survey">
@@ -894,6 +932,75 @@
         </div>
         <p class="map2-note">Note: Koom Kalan received fresh Map 2 and attributes again from SOI on 13 March 2026.</p>
 
+    </section>
+
+    <section class="tab-panel" id="mussavi-panel" role="tabpanel" aria-labelledby="tab-mussavi" data-panel="mussavi" hidden>
+        <div class="header">
+            <h1>Mussavi Dashboard</h1>
+            <p>Ludhiana District | Tehsil-wise Mussavi Pendency</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card danger">
+                <div class="stat-label">Total Mussavi Pendency</div>
+                <div class="stat-value">92</div>
+                <div class="stat-subtext">Across all tehsils</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Pending at CRO Level</div>
+                <div class="stat-value">18</div>
+                <div class="stat-subtext">Type-wise pendency</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Pending at Patwari Level</div>
+                <div class="stat-value">53</div>
+                <div class="stat-subtext">Type-wise pendency</div>
+            </div>
+            <div class="stat-card warning">
+                <div class="stat-label">Pending at PRSC</div>
+                <div class="stat-value">21</div>
+                <div class="stat-subtext">Type-wise pendency</div>
+            </div>
+        </div>
+
+        <div class="mussavi-table-container">
+            <h2>Tehsil-wise Mussavi Pendency</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tehsil</th>
+                        <th>Total Pendency</th>
+                        <th>Pending at CRO Level</th>
+                        <th>Pending at Patwari Level</th>
+                        <th>Pending at PRSC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="mussavi-row-top"><td><strong>Payal</strong></td><td><span class="badge danger">27</span></td><td>7</td><td>17</td><td>3</td></tr>
+                    <tr class="mussavi-row-top"><td><strong>Khanna</strong></td><td><span class="badge danger">12</span></td><td>2</td><td>8</td><td>2</td></tr>
+                    <tr class="mussavi-row-top"><td><strong>Jagraon</strong></td><td><span class="badge danger">10</span></td><td>3</td><td>5</td><td>2</td></tr>
+                    <tr class="mussavi-row-high"><td><strong>Raikot</strong></td><td><span class="badge warning">9</span></td><td>0</td><td>6</td><td>3</td></tr>
+                    <tr class="mussavi-row-high"><td><strong>Samrala</strong></td><td><span class="badge warning">9</span></td><td>2</td><td>2</td><td>5</td></tr>
+                    <tr class="mussavi-row-high"><td><strong>Mullanpur</strong></td><td><span class="badge warning">7</span></td><td>3</td><td>3</td><td>1</td></tr>
+                    <tr class="mussavi-row-high"><td><strong>Ludhiana West</strong></td><td><span class="badge warning">6</span></td><td>1</td><td>4</td><td>1</td></tr>
+                    <tr class="mussavi-row-low"><td><strong>Ludhiana South</strong></td><td><span class="badge success">4</span></td><td>0</td><td>1</td><td>3</td></tr>
+                    <tr class="mussavi-row-low"><td><strong>Dehlon</strong></td><td><span class="badge success">3</span></td><td>0</td><td>2</td><td>1</td></tr>
+                    <tr class="mussavi-row-low"><td><strong>Maloud</strong></td><td><span class="badge success">3</span></td><td>0</td><td>3</td><td>0</td></tr>
+                    <tr class="mussavi-row-low"><td><strong>Ludhiana East</strong></td><td><span class="badge success">1</span></td><td>0</td><td>1</td><td>0</td></tr>
+                    <tr class="mussavi-row-low"><td><strong>Koom Kalan</strong></td><td><span class="badge success">1</span></td><td>0</td><td>1</td><td>0</td></tr>
+                    <tr><td><strong>Sahnewal</strong></td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td><strong>Sidhwan Bet</strong></td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td><strong>Machhiwara</strong></td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><span class="badge danger">92</span></td>
+                        <td><strong>18</strong></td>
+                        <td><strong>53</strong></td>
+                        <td><strong>21</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
