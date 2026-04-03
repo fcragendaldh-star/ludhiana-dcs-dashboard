@@ -201,6 +201,7 @@
             border: 1px solid #fca5a5;
         }
 
+        .sv-table-container,
         .mussavi-table-container {
             background: var(--color-bg-secondary);
             padding: 20px;
@@ -209,9 +210,22 @@
             overflow-x: auto;
         }
 
+        .sv-table-container h2,
         .mussavi-table-container h2 {
             margin-bottom: 15px;
             color: var(--color-primary);
+        }
+
+        .sv-row-green td {
+            background: #dcfce7;
+        }
+
+        .sv-row-orange td {
+            background: #fef3c7;
+        }
+
+        .sv-row-red td {
+            background: #fee2e2;
         }
 
         .mussavi-row-top td {
@@ -450,6 +464,18 @@
             .sv-card-red {
                 background: rgba(239, 68, 68, 0.18);
                 border-color: rgba(252, 165, 165, 0.60);
+            }
+
+            .sv-row-green td {
+                background: rgba(16, 185, 129, 0.18);
+            }
+
+            .sv-row-orange td {
+                background: rgba(245, 158, 11, 0.18);
+            }
+
+            .sv-row-red td {
+                background: rgba(239, 68, 68, 0.18);
             }
 
             .mussavi-row-top td {
@@ -776,125 +802,41 @@
             </div>
         </div>
 
-        <h2 style="margin: 30px 0 20px 0; padding-left: 10px;">Tehsil-wise Ground Truthing Status</h2>
-        <div class="subdivision-grid">
-            <div class="subdivision-card sv-card-green">
-                <h3>Payal</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">40</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">12</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">1</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">29</span></div>
-                </div>
-            </div>
-            <div class="subdivision-card sv-card-green">
-                <h3>Jagraon</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">39</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">16</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">5</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">28</span></div>
-                </div>
-            </div>
-            <div class="subdivision-card sv-card-orange">
-                <h3>Ludhiana West</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">30</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">8</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">1</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">23</span></div>
-                </div>
-            </div>
-            <div class="subdivision-card sv-card-red">
-                <h3>Koom Kalan</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">18</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">3</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">1</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">16</span></div>
-                </div>
-            </div>
-            <div class="subdivision-card sv-card-red">
-                <h3>Mullanpur</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">15</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">3</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">0</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">12</span></div>
-                </div>
-            </div>
-            <div class="subdivision-card sv-card-red">
-                <h3>Khanna</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">12</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">3</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">0</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">9</span></div>
-                </div>
-            </div>
-            <div class="subdivision-card sv-card-red">
-                <h3>Ludhiana Central</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">11</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">3</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">0</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">8</span></div>
-                </div>
-            </div>
-            <div class="subdivision-card sv-card-red">
-                <h3>Dehlon</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">6</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">2</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">1</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">5</span></div>
-                </div>
-            </div>
-            <div class="subdivision-card sv-card-green">
-                <h3>Samrala</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">6</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">4</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">5</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">7</span></div>
-                </div>
-            </div>
-            <div class="subdivision-card sv-card-green">
-                <h3>Machhiwara</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">5</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">4</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">0</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">1</span></div>
-                </div>
-            </div>
-            <div class="subdivision-card sv-card-green">
-                <h3>Sahnewal</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">4</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">1</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">0</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">3</span></div>
-                </div>
-            </div>
-            <div class="subdivision-card sv-card-green">
-                <h3>Ludhiana East</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">2</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">1</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">0</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">1</span></div>
-                </div>
-            </div>
-            <div class="subdivision-card sv-card-green">
-                <h3>Raikot</h3>
-                <div class="detail-grid">
-                    <div class="detail-item"><span class="detail-label">Pendency on Last Review</span><span class="detail-value">2</span></div>
-                    <div class="detail-item"><span class="detail-label">Progress</span><span class="detail-value">2</span></div>
-                    <div class="detail-item"><span class="detail-label">New Addition</span><span class="detail-value">1</span></div>
-                    <div class="detail-item"><span class="detail-label">New Pendency</span><span class="detail-value">1</span></div>
-                </div>
-            </div>
+        <div class="sv-table-container">
+            <h2>Tehsil-wise Ground Truthing Status</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tehsil</th>
+                        <th>Pendency on Last Review</th>
+                        <th>Progress</th>
+                        <th>New Addition</th>
+                        <th>New Pendency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="sv-row-green"><td><strong>Payal</strong></td><td>40</td><td>12</td><td>1</td><td>29</td></tr>
+                    <tr class="sv-row-green"><td><strong>Jagraon</strong></td><td>39</td><td>16</td><td>5</td><td>28</td></tr>
+                    <tr class="sv-row-orange"><td><strong>Ludhiana West</strong></td><td>30</td><td>8</td><td>1</td><td>23</td></tr>
+                    <tr class="sv-row-red"><td><strong>Koom Kalan</strong></td><td>18</td><td>3</td><td>1</td><td>16</td></tr>
+                    <tr class="sv-row-red"><td><strong>Mullanpur</strong></td><td>15</td><td>3</td><td>0</td><td>12</td></tr>
+                    <tr class="sv-row-red"><td><strong>Khanna</strong></td><td>12</td><td>3</td><td>0</td><td>9</td></tr>
+                    <tr class="sv-row-red"><td><strong>Ludhiana Central</strong></td><td>11</td><td>3</td><td>0</td><td>8</td></tr>
+                    <tr class="sv-row-red"><td><strong>Dehlon</strong></td><td>6</td><td>2</td><td>1</td><td>5</td></tr>
+                    <tr class="sv-row-green"><td><strong>Samrala</strong></td><td>6</td><td>4</td><td>5</td><td>7</td></tr>
+                    <tr class="sv-row-green"><td><strong>Machhiwara</strong></td><td>5</td><td>4</td><td>0</td><td>1</td></tr>
+                    <tr class="sv-row-green"><td><strong>Sahnewal</strong></td><td>4</td><td>1</td><td>0</td><td>3</td></tr>
+                    <tr class="sv-row-green"><td><strong>Ludhiana East</strong></td><td>2</td><td>1</td><td>0</td><td>1</td></tr>
+                    <tr class="sv-row-green"><td><strong>Raikot</strong></td><td>2</td><td>2</td><td>1</td><td>1</td></tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>190</strong></td>
+                        <td><strong>62</strong></td>
+                        <td><strong>15</strong></td>
+                        <td><strong>143</strong></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <h2 style="margin: 10px 0 20px 0; padding-left: 10px;">Tehsil-wise Map 2 Pendency</h2>
